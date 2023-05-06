@@ -1,2 +1,3 @@
-# creativecomputing1
+# Creative Computing 1
+
 A place to put all my things!
