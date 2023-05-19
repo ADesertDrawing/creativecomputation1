@@ -21,7 +21,21 @@ function preload() {
 Description of setup
 */
 function setup() {
-    background(255, 255, 0);
+    createCanvas(500,500);
+    background(100, 150, 50);
+
+    point(150,150);
+    rectMode(CENTER);
+    rect(250,250,250, 250);
+    rect(250,250,200, 200);
+
+    line(0, 0, 500, 500);
+    ellipseMode(CENTER);
+   
+   
+    ellipse(250, 250, 100, 100);
+    ellipse(250, 250, 90, 90);
+    ellipse(250, 250, 80, 80);
 }
 
 
