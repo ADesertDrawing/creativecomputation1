@@ -23,28 +23,29 @@ Description of setup
 function setup() {
     createCanvas(500, 500);
     
-    background(255, 127, 0);
+    background(250);
 
-    fill(128, 159, 255);
+    stroke(220);
+    fill(200);
     triangle(130, 250, 60, 380, 200, 380);
-    fill(46, 74, 158);
+    fill(100);
     triangle(130, 250, 200, 380, 220, 350);
 
     noStroke(); 	
 
-    fill(255, 255, 51);
+    fill(200);
     triangle(330, 250, 260, 380, 400, 380);
-    fill(153, 153, 0);
+    fill(100);
     triangle(330, 250, 400, 380, 420, 350);
 
 
 
-    fill(128, 159, 255, 150);
-    triangle(230, 250, 160, 380, 300, 380);
-    fill(46, 74, 158, 150);
-    triangle(230, 250, 300, 380, 320, 350);
+    fill(200);
+    triangle(230, 300, 160, 430, 300, 430);
+    fill(100);
+    triangle(230, 300, 300, 430, 320, 400);
 
-    stroke(51, 204, 51);
+    stroke(220);
     strokeWeight(10);
     line(0,100, 500, 90);
  
