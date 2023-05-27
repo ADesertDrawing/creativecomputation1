@@ -9,7 +9,7 @@ Drawing an alien to show off my muscles
 
 
 /**
-Description of preload
+Does nothing (as far as I know)
 */
 function preload() {
 
@@ -39,13 +39,13 @@ function setup() {
     ellipse(270, 240, 80, 150);
     ellipse(370, 240, 80, 150);
 
-    //Draw the alien nostrils
+//Draw the alien nostrils
     noStroke();
     fill(0);
     ellipse(305, 320, 20, 20);
     ellipse(335, 320, 20, 20);
 
-    //Draw the alien mouth
+//Draw the alien mouth
     stroke(200,200,200);
     strokeWeight(2);
     rectMode(CENTER);
@@ -54,7 +54,7 @@ function setup() {
 
 
 /**
-Description of draw()
+Does nothing
 */
 function draw() {
 
