@@ -10,7 +10,7 @@ let circleSize=150;
 let circleX=0;
 let circleY=250;
 let circleSpeed=2;
-
+let circleAcceleration = 0.25;
 /**
 Description of setup
 */
@@ -25,6 +25,7 @@ Description of draw()
 function draw() {
 
     background(backgroundShade);
-    circleX = circleX+circleSpeed;
+    circleX += circleSpeed;
+    circleSpeed = circleSpeed + circleAcceleration;
     ellipse(circleX, circleY, circleSize);
 }
