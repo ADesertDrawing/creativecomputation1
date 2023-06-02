@@ -6,11 +6,14 @@ by A Desert Drawing
 "use strict";
 
 let backgroundShade=0;
-let circleSize=150;
-let circleX=0;
-let circleY=250;
-let circleSpeed=2;
-let circleAcceleration = 0.25;
+
+let circle = {
+   x:0, 
+   y:250,
+   size: 200,
+   speed:2
+};
+
 /**
 Description of setup
 */
@@ -25,7 +28,6 @@ Description of draw()
 function draw() {
 
     background(backgroundShade);
-    circleX += circleSpeed;
-    circleSpeed = circleSpeed + circleAcceleration;
-    ellipse(circleX, circleY, circleSize);
+    circle.x += circle.speed;
+     ellipse(circle.x, circle.y, circle.size);
 }
