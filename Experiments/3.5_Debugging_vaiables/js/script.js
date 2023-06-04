@@ -1,5 +1,5 @@
 /**
-3.2 creating variables
+3.5 Debugging variables
 by A Desert Drawing
 */
 
@@ -10,7 +10,7 @@ let circleSize=150;
 let circleX=0;
 let circleY=250;
 let circleSpeed=2;
-let circleAcceleration = 0.25;
+
 /**
 Description of setup
 */
@@ -26,8 +26,9 @@ function draw() {
 
     background(backgroundShade);
     circleX += circleSpeed;
-    circleSpeed = circleSpeed + circleAcceleration;
+    
     ellipse(circleX, circleY, circleSize);
 
-    
+    console.log(`circleX: ${circleX}), circleY: ${circleY}, circleSize: ${circleSize}`);
+
 }
