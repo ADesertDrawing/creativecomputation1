@@ -7,11 +7,20 @@ Description
 
 "use strict";
 
+let circle  = {
+    x: undefined,
+    y: undefined,
+    size: 100
+}
+
 /**
 Description of setup
 */
 function setup() {
-    background(255, 255, 0);
+    createCanvas(500,500);
+    circle.x = random(0,width);
+    circle.y = random(0,height);
+    
 }
 
 
@@ -19,5 +28,9 @@ function setup() {
 Description of draw()
 */
 function draw() {
+    background(0);
 
+    fill(255);
+    noStroke();
+    ellipse(circle.x,circle.y,circle.size);
 }
