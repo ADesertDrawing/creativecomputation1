@@ -2,14 +2,17 @@
 4.10 Images
 by A Desert Drawing
 
-"use strict";
-
-/**
-Description of setup
 */
+
+let clownImage;
+
+function preload() {
+    clownImage = loadImage("assets/images/clown.png")
+}
+
 function setup() {
     createCanvas(500,500);
-    background(0,0,0);
+
 }
 
 
@@ -17,5 +20,8 @@ function setup() {
 Description of draw()
 */
 function draw() {
+    background(0,0,0);
+    imageMode(CENTER);
+    image(clownImage,mouseX,mouseY,50,50);
 
 }
