@@ -1,5 +1,5 @@
 /**
-Title of Project
+Curiosity in p5
 by A Desert Drawing
 */
 
