@@ -3,11 +3,17 @@ Curiosity
 by A Desert Drawing
 */
 
+
+
 function setup() {
-    createCanvas(width,height);
+    createCanvas(windowWidth, windowHeight);
 
 }
 
 function draw() {
-    background(0);
+
+
+
 }
+
+
