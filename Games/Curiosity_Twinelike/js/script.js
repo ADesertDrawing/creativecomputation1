@@ -16,7 +16,7 @@ let current = "introduction";
 // The story data
 const story = {
     "introduction": {
-        "main_text": "Help",
+        "main_text": "Help!",
         "links": [
             {
                 "label": "Yes",

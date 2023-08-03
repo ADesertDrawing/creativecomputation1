@@ -10,11 +10,22 @@ Also hides overflow.
 **********************************************/
 
 body {
-  padding: 0;
-  margin: 0;
-  display: grid; /* Set up the grid and justify/align to center */
-  justify-content: center;
-  align-content: center;
+  background-color: black;
+
+  padding: 100;
+  margin: 100;
+  display: grid; /* Set up the grid and justify/align to left */
+  justify-content: left;
+  align-content: left;
   height: 100vh; /* Body is the height of the viewport */
   overflow: hidden; /* Hide anything that goes off the window size */
+  font-family: 'VT323';font-size: 40px;color: #00cc00;
+
+  @font-face {
+  
+    font-style: normal;
+    text-shadow : horizontal-shadow vertical-shadow blur #00cc00;
+    font-weight: 400;
+    src: url('../fonts/vt323-v17-latin-regular.woff2') format('woff2'); 
+  }
 }
