@@ -63,6 +63,109 @@ const story = {
             }            
         ]
     },
+    "yes2": {
+        "main_text": "Thank you. Let's start.",
+        "links": [
+            {
+                "label": "Continue.",
+                "destination": "yes3"
+            }            
+        ]
+    },
+    "yes3": {
+        "main_text": "I would like to ask you some questions. Please answer honestly and concisely. There are no wrong answers.",
+        "links": [
+            {
+                "label": "Continue",
+                "destination": "q1"
+            } 
+        ]
+    },
+    "q1": {
+        "main_text": "Why are you here? Because...",
+        "links": [
+            {
+                "label": "Continue",
+                "destination": "q2"
+            } 
+        ]
+    },
+    "q2": {
+        "main_text": "What's the reason for that? Because...",
+        "links": [
+            {
+                "label": "Continue",
+                "destination": "q3"
+            } 
+        ]
+    },
+    "q3": {
+        "main_text": "Why is that the case? Because...",
+        "links": [
+            {
+                "label": "Continue",
+                "destination": "q4"
+            } 
+        ]
+    },
+    "q4": {
+        "main_text": "And why is that? Because...",
+        "links": [
+            {
+                "label": "Continue",
+                "destination": "q5"
+            } 
+        ]
+    },
+    "q5": {
+        "main_text": "An what's the reason for that? Because...",
+        "links": [
+            {
+                "label": "Continue",
+                "destination": "postQ"
+            } 
+        ]
+    },
+    "postQ": {
+        "main_text": "Can I ask one more question?",
+        "links": [
+            {
+                "label": "Ok.",
+                "destination": "postQ2"
+            } 
+        ]
+    },
+    "postQ2": {
+        "main_text": "Do you have free will?",
+        "links": [
+            {
+                "label": "Yes",
+                "destination": "endYes"
+            }, 
+            {
+                "label": "No",
+                "destination": "endNo"
+            }
+        ]
+    },
+    "endYes": {
+        "main_text": "5 answers displayed here with I am free",
+        "links": [
+            {
+                "label": "Thank you. Goodbye.",
+                "destination": "introduction"
+            } 
+        ]
+    },
+    "endNo": {
+        "main_text": "5 answers displayed here with I am not free",
+        "links": [
+            {
+                "label": "Thank you. Goodbye.",
+                "destination": "introduction"
+            } 
+        ]
+    }
 }
 
 // This tells the page to run the setup function when it loads
