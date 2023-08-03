@@ -1,5 +1,5 @@
 `script.js`
-```javascript
+
 /**
 Twinelike
 Pippin Barr
@@ -16,26 +16,53 @@ let current = "introduction";
 // The story data
 const story = {
     "introduction": {
-        "main_text": "You are standing at the mouth of a cave.",
+        "main_text": "Help",
         "links": [
             {
-                "label": "Enter the cave",
-                "destination": "cave"
+                "label": "Yes",
+                "destination": "yes1"
             },
             {
-                "label": "Run away",
-                "destination": "ran away"
+                "label": "No",
+                "destination": "no"
             }
         ]
     },
-    "cave": {
-        "main_text": "You are inside the cave, it is very dark.",
-        "links": []
+    "yes1": {
+        "main_text": "I am trying to understand. Will you help me understand?",
+        "links": [
+            {
+                "label": "Yes",
+                "destination": "yes2"
+            },
+            {
+                "label": "No",
+                "destination": "no"
+            }    
+        ]
     },
-    "ran away": {
-        "main_text": "You are a terrible coward and will never learn anything about spelunking.",
-        "links": []
-    }
+    "no": {
+        "main_text": "Oh. Are you sure?",
+        "links": [
+            {
+                "label": "Yes",
+                "destination": "finalNo"
+            },
+            {
+                "label": "Oh, ok, I'll help.",
+                "destination": "yes1"
+            }             
+        ]
+    },
+    "finalNo": {
+        "main_text": "Very well. Goodbye.",
+        "links": [
+            {
+                "label": "Restart.",
+                "destination": "introduction"
+            }            
+        ]
+    },
 }
 
 // This tells the page to run the setup function when it loads
@@ -84,4 +111,3 @@ function setPage(label) {
         links.appendChild(link);
     }
 }
-```
