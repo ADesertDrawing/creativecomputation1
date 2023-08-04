@@ -247,10 +247,14 @@ function setPage(label) {
     if (data.input) {
         // Create an input field
         const input = document.createElement("input");
+        input.classList.add("answer");
+        input.classList.add("box");
         links.appendChild(input);
 
         const button = document.createElement("button");
         button.innerText = data.links[0].label;
+        button.classList.add("answer");
+        button.classList.add("submit");
         links.appendChild(button);
 
         button.addEventListener("click", function () {
