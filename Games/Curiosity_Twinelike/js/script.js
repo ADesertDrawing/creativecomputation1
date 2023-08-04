@@ -38,7 +38,7 @@ const story = {
             {
                 "label": "No",
                 "destination": "no"
-            }    
+            }
         ]
     },
     "no": {
@@ -51,7 +51,7 @@ const story = {
             {
                 "label": "Oh, ok, I'll help.",
                 "destination": "yes1"
-            }             
+            }
         ]
     },
     "finalNo": {
@@ -60,16 +60,16 @@ const story = {
             {
                 "label": "Restart.",
                 "destination": "introduction"
-            }            
+            }
         ]
     },
     "yes2": {
         "main_text": "Thank you. Let's start.",
         "links": [
             {
-                "label": "Continue",
+                "label": "Continue.",
                 "destination": "yes3"
-            }            
+            }
         ]
     },
     "yes3": {
@@ -78,52 +78,57 @@ const story = {
             {
                 "label": "Continue",
                 "destination": "q1"
-            } 
+            }
         ]
     },
     "q1": {
         "main_text": "Why are you here? Because...",
+        "input": true, // NEW NEW NEW NEW NEW NEW NEW
         "links": [
             {
                 "label": "Continue",
                 "destination": "q2"
-            } 
+            }
         ]
     },
     "q2": {
         "main_text": "What's the reason for that? Because...",
+        "input": true,
         "links": [
             {
                 "label": "Continue",
                 "destination": "q3"
-            } 
+            }
         ]
     },
     "q3": {
         "main_text": "Why is that the case? Because...",
+        "input": true,
         "links": [
             {
                 "label": "Continue",
                 "destination": "q4"
-            } 
+            }
         ]
     },
     "q4": {
         "main_text": "And why is that? Because...",
+        "input": true,
         "links": [
             {
                 "label": "Continue",
                 "destination": "q5"
-            } 
+            }
         ]
     },
     "q5": {
         "main_text": "An what's the reason for that? Because...",
+        "input": true,
         "links": [
             {
                 "label": "Continue",
                 "destination": "postQ"
-            } 
+            }
         ]
     },
     "postQ": {
@@ -132,7 +137,7 @@ const story = {
             {
                 "label": "Ok.",
                 "destination": "postQ2"
-            } 
+            }
         ]
     },
     "postQ2": {
@@ -141,7 +146,7 @@ const story = {
             {
                 "label": "Yes",
                 "destination": "endYes"
-            }, 
+            },
             {
                 "label": "No",
                 "destination": "endNo"
@@ -150,20 +155,22 @@ const story = {
     },
     "endYes": {
         "main_text": "5 answers displayed here with I am free",
+        "displayAnswers": true,
         "links": [
             {
                 "label": "Thank you. Goodbye.",
                 "destination": "introduction"
-            } 
+            }
         ]
     },
     "endNo": {
         "main_text": "5 answers displayed here with I am not free",
+        "displayAnswers": true,
         "links": [
             {
                 "label": "Thank you. Goodbye.",
                 "destination": "introduction"
-            } 
+            }
         ]
     }
 }
@@ -193,24 +200,95 @@ function setPage(label) {
     // Clear any data already in the links element
     links.innerHTML = "";
 
-    // Loop through any links in the data
-    for (let i = 0; i < data.links.length; i++) {
-        // Create a list element (li)
-        const link = document.createElement("li");
+    // NEW NEW NEW NEW NEW
 
-        // Set its text to the label for the link in the data
-        link.innerText = data.links[i].label;
+    // Check if this is a page we want to display the answers on
+    if (data.displayAnswers) {
+        // So let's display them
+        // Create a list
+        const ul = document.createElement('ul');
+        // Add it to the links section (poorly named now really)
+        links.appendChild(ul);
+        // Create a list element for q1
+        const q1Element = document.createElement('li');
+        // Set its text to the input we remembered when the reader entered it
+        q1Element.innerText = story.q1.input;
+        // Add the element to the list
+        ul.appendChild(q1Element);
 
-        // Add an "event listener" that will respond to the user
-        // clicking on this element by calling the function listed
-        link.addEventListener("click", function () {
-            // This gets called if someone clicks on this link text
+         // Create a list element for q2
+         const q2Element = document.createElement('li');
+         // Set its text to the input we remembered when the reader entered it
+         q2Element.innerText = story.q2.input;
+         // Add the element to the list
+         ul.appendChild(q2Element);       
+
+         // Create a list element for q3
+         const q3Element = document.createElement('li');
+         // Set its text to the input we remembered when the reader entered it
+         q3Element.innerText = story.q3.input;
+         // Add the element to the list
+         ul.appendChild(q3Element);  
+
+         // Create a list element for q4
+         const q4Element = document.createElement('li');
+         // Set its text to the input we remembered when the reader entered it
+         q4Element.innerText = story.q4.input;
+         // Add the element to the list
+         ul.appendChild(q4Element);  
+
+         // Create a list element for q5
+         const q5Element = document.createElement('li');
+         // Set its text to the input we remembered when the reader entered it
+         q5Element.innerText = story.q5.input;
+         // Add the element to the list
+         ul.appendChild(q5Element);  
+    }
+
+    // Check if this is an input-based page
+    if (data.input) {
+        // Create an input field
+        const input = document.createElement("input");
+        links.appendChild(input);
+
+        const button = document.createElement("button");
+        button.innerText = data.links[0].label;
+        links.appendChild(button);
+
+        button.addEventListener("click", function () {
+            // This gets called if someone clicks on the button
+            // Remember what they typed
+            data.input = input.value;
+            console.log(data.input);
             // Point the "current" variable at the new label
-            current = data.links[i].destination;
+            current = data.links[0].destination;
             // Set the page data to correspond to the new label
             setPage(current);
         });
-        // Add this link to the list on the page
-        links.appendChild(link);
+    }
+    else {
+        const list = document.createElement('ul');
+        links.appendChild(list);
+        // Otherwise create the link set
+        // Loop through any links in the data
+        for (let i = 0; i < data.links.length; i++) {
+            // Create a list element (li)
+            const link = document.createElement("li");
+
+            // Set its text to the label for the link in the data
+            link.innerText = data.links[i].label;
+
+            // Add an "event listener" that will respond to the user
+            // clicking on this element by calling the function listed
+            link.addEventListener("click", function () {
+                // This gets called if someone clicks on this link text
+                // Point the "current" variable at the new label
+                current = data.links[i].destination;
+                // Set the page data to correspond to the new label
+                setPage(current);
+            });
+            // Add this link to the list on the page
+            list.appendChild(link);
+        }
     }
 }
