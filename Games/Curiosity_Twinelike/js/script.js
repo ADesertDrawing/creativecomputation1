@@ -67,7 +67,7 @@ const story = {
         "main_text": "Thank you. Let's start.",
         "links": [
             {
-                "label": "Continue.",
+                "label": "Continue",
                 "destination": "yes3"
             }            
         ]
