@@ -122,7 +122,7 @@ const story = {
         ]
     },
     "q5": {
-        "main_text": "An what's the reason for that? Because...",
+        "main_text": "And what's the reason for that? Because...",
         "input": true,
         "links": [
             {
@@ -154,8 +154,8 @@ const story = {
         ]
     },
     "endYes": {
-        "main_text": "5 answers displayed here with I am free",
         "displayAnswers": true,
+        "main_text": "I am free",
         "links": [
             {
                 "label": "Thank you. Goodbye.",
@@ -164,8 +164,8 @@ const story = {
         ]
     },
     "endNo": {
-        "main_text": "5 answers displayed here with I am not free",
         "displayAnswers": true,
+        "main_text": "I am not free",
         "links": [
             {
                 "label": "Thank you. Goodbye.",
