@@ -200,8 +200,6 @@ function setPage(label) {
     // Clear any data already in the links element
     links.innerHTML = "";
 
-    // NEW NEW NEW NEW NEW
-
     // Check if this is a page we want to display the answers on
     if (data.displayAnswers) {
         // So let's display them
