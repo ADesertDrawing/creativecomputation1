@@ -67,7 +67,7 @@ const story = {
         "main_text": "Thank you. Let's start.",
         "links": [
             {
-                "label": "Continue.",
+                "label": "Continue",
                 "destination": "yes3"
             }
         ]
@@ -193,6 +193,10 @@ function setPage(label) {
     // and the links list
     const main = document.getElementById("main_text");
     const links = document.getElementById("links");
+    // Create a css style for main text
+    main_text.classList.add("main_text");
+    // Create a css style for links
+    links.classList.add("links");
 
     // Set the main text to the data for this label's main text
     main.innerText = data.main_text;

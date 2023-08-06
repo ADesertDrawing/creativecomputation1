@@ -40,6 +40,16 @@ li {
   align-content:top;
 }
 
+.main_text {
+  padding: 100;
+  margin: 100;
+}
+
+.links {
+  padding: 100;
+  margin: 100;
+}
+
 .answer {
 
   font-family: 'VT323';
