@@ -33,6 +33,13 @@ body {
 
 }
 
+
+li {
+  list-style-type: none;
+  justify-content:top;
+  align-content:top;
+}
+
 .answer {
 
   font-family: 'VT323';
@@ -41,6 +48,7 @@ body {
   background-color: black;
   font-style: normal;
   text-shadow:-3px 1px 10px #00cc00, 3px -1px 10px #00cc00, -3px -1px 10px #00cc00, 3px 1px 10px #00cc00;
+
 }
 
 .submit {
@@ -77,6 +85,8 @@ body {
   font-style: normal;
   box-shadow:-3px 1px 10px #00cc00, 3px -1px 10px #00cc00, -3px -1px 10px #00cc00, 3px 1px 10px #00cc00;
 }
+
+
  /*
 input[type=text], select {
 
