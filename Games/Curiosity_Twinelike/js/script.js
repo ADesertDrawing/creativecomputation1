@@ -159,9 +159,10 @@ const story = {
         "links": [
             {
                 "label": "Thank you. Goodbye.",
-                "destination": "introduction"
+                "destination": "introduction",
             }
         ]
+        
     },
     "endNo": {
         "displayAnswers": true,
@@ -174,6 +175,25 @@ const story = {
         ]
     }
 }
+// Set up an idle time detector
+var inactivityTime = function () {
+    var time;
+    window.onload = resetTimer;
+    // DOM Events
+    document.onmousemove = resetTimer;
+    document.onkeydown = resetTimer;
+    //reload the page
+    function logout() {
+        window.location.reload(); 
+
+    }
+
+    function resetTimer() {
+        clearTimeout(time);
+        time = setTimeout(logout, 10000)
+        // 1000 milliseconds = 1 second
+    }
+};
 
 // This tells the page to run the setup function when it loads
 window.onload = setup;
@@ -182,6 +202,8 @@ window.onload = setup;
 function setup() {
     // Just set the page to the current page
     setPage(current);
+    // Initialise the timeout function
+    inactivityTime();
 }
 
 // Sets the page data to the data corresponding to the label
@@ -193,10 +215,11 @@ function setPage(label) {
     // and the links list
     const main = document.getElementById("main_text");
     const links = document.getElementById("links");
+
     // Create a css style for main text
     main_text.classList.add("main_text");
     // Create a css style for links
-    links.classList.add("links");
+    links.classList.add("links");  
 
     // Set the main text to the data for this label's main text
     main.innerText = data.main_text;
@@ -244,7 +267,7 @@ function setPage(label) {
          // Set its text to the input we remembered when the reader entered it
          q5Element.innerText = story.q5.input;
          // Add the element to the list
-         ul.appendChild(q5Element);  
+         ul.appendChild(q5Element); 
     }
 
     // Check if this is an input-based page
