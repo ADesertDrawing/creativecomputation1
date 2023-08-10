@@ -83,7 +83,7 @@ const story = {
     },
     "q1": {
         "main_text": "Why are you here? Because...",
-        "input": true, // NEW NEW NEW NEW NEW NEW NEW
+        "input": true, 
         "links": [
             {
                 "label": "Continue",
