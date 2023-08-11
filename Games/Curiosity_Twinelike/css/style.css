@@ -12,7 +12,7 @@ Also hides overflow.
 
 @font-face {
     font-family: 'VT323';
-    font-weight: 20;
+    font-weight: 24;
     src: url('../assets/fonts/vt323-v17-latin-regular.woff2') format('woff2'); 
   }
   html {
@@ -21,7 +21,7 @@ Also hides overflow.
 
 body {
   font-family: 'VT323';
-  font-size: 20px;
+  font-size: 24px;
   color: #00cc00;
   background-color: black;
   font-style: normal;
@@ -45,6 +45,7 @@ li {
 .main_text {
   padding: 200;
   margin: 100;
+
 }
 
 .links {
@@ -55,7 +56,7 @@ li {
 .answer {
 
   font-family: 'VT323';
-  font-size: 20px;
+  font-size: 24px;
   color: #00cc00;
   background-color: black;
   font-style: normal;
@@ -73,7 +74,7 @@ li {
   border-radius: 4px;
   cursor: pointer;
   font-family: 'VT323';
-  font-size: 20px;
+  font-size: 24px;
   color: #00cc00;
   background-color: black;
   font-style: normal;
@@ -91,7 +92,7 @@ li {
   border-radius: 4px;
   box-sizing: border-box;
   font-family: 'VT323';
-  font-size: 20px;
+  font-size: 24px;
   color: #00cc00;
   background-color: black;
   font-style: normal;
