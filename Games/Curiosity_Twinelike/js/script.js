@@ -216,6 +216,7 @@ function setPage(label) {
     const main = document.getElementById("main_text");
     const links = document.getElementById("links");
 
+
     // Create a css style for main text
     main_text.classList.add("main_text");
     // Create a css style for links
@@ -233,7 +234,8 @@ function setPage(label) {
         // Create a list
         const ul = document.createElement('ul');
         // Add it to the links section (poorly named now really)
-        links.appendChild(ul);
+        const answers = document.getElementById("answers");
+answers.appendChild(ul);
         // Create a list element for q1
         const q1Element = document.createElement('li');
         // Set its text to the input we remembered when the reader entered it
