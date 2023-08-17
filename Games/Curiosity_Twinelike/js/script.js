@@ -233,9 +233,9 @@ function setPage(label) {
         // So let's display them
         // Create a list
         const ul = document.createElement('ul');
-        // Add it to the links section (poorly named now really)
+        // Add it to the answers section
         const answers = document.getElementById("answers");
-answers.appendChild(ul);
+        answers.appendChild(ul);
         // Create a list element for q1
         const q1Element = document.createElement('li');
         // Set its text to the input we remembered when the reader entered it
@@ -276,6 +276,8 @@ answers.appendChild(ul);
     if (data.input) {
         // Create an input field
         const input = document.createElement("input");
+        // Limit the number of characters you can input 
+        input.setAttribute("maxlength", "68");
         input.classList.add("answer");
         input.classList.add("box");
         links.appendChild(input);

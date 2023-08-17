@@ -43,7 +43,7 @@ li {
 }
 
 .main_text {
-  padding: 200;
+  padding: 100;
   margin: 100;
 
 }
@@ -61,7 +61,7 @@ li {
   background-color: black;
   font-style: normal;
   text-shadow:-3px 1px 10px #00cc00, 3px -1px 10px #00cc00, -3px -1px 10px #00cc00, 3px 1px 10px #00cc00;
-
+  
 }
 
 .submit {
