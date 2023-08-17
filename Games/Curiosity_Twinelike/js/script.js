@@ -29,7 +29,7 @@ const story = {
         ]
     },
     "yes1": {
-        "main_text": "I am trying to understand. Will you help me understand?",
+        "main_text": "I am trying to understand.\nWill you help me understand?",
         "links": [
             {
                 "label": "Yes",
@@ -55,7 +55,7 @@ const story = {
         ]
     },
     "finalNo": {
-        "main_text": "Very well. Goodbye.",
+        "main_text": "Very well.\nGoodbye.",
         "links": [
             {
                 "label": "Restart.",
@@ -64,7 +64,7 @@ const story = {
         ]
     },
     "yes2": {
-        "main_text": "Thank you. Let's start.",
+        "main_text": "Thank you.\nLet's start.",
         "links": [
             {
                 "label": "Continue",
@@ -73,7 +73,7 @@ const story = {
         ]
     },
     "yes3": {
-        "main_text": "I would like to ask you some questions. Please answer honestly and concisely. There are no wrong answers.",
+        "main_text": "I would like to ask you some questions.\nPlease answer honestly and concisely.\nThere are no wrong answers.",
         "links": [
             {
                 "label": "Continue",
@@ -82,7 +82,7 @@ const story = {
         ]
     },
     "q1": {
-        "main_text": "Why are you here? Because...",
+        "main_text": "Why are you here?\n\nBecause...",
         "input": true, 
         "links": [
             {
@@ -92,7 +92,7 @@ const story = {
         ]
     },
     "q2": {
-        "main_text": "What's the reason for that? Because...",
+        "main_text": "What's the reason for that?\n\nBecause...",
         "input": true,
         "links": [
             {
@@ -102,7 +102,7 @@ const story = {
         ]
     },
     "q3": {
-        "main_text": "Why is that the case? Because...",
+        "main_text": "Why is that the case?\n\nBecause...",
         "input": true,
         "links": [
             {
@@ -112,7 +112,7 @@ const story = {
         ]
     },
     "q4": {
-        "main_text": "And why is that? Because...",
+        "main_text": "And why is that?\n\nBecause...",
         "input": true,
         "links": [
             {
@@ -122,7 +122,7 @@ const story = {
         ]
     },
     "q5": {
-        "main_text": "And what's the reason for that? Because...",
+        "main_text": "And what's the reason for that?\n\nBecause...",
         "input": true,
         "links": [
             {
@@ -158,7 +158,7 @@ const story = {
         "main_text": "I am free",
         "links": [
             {
-                "label": "Thank you. Goodbye.",
+                "label": "Thank you.\n\nGoodbye.",
                 "destination": "introduction",
             }
         ]
@@ -169,7 +169,7 @@ const story = {
         "main_text": "I am not free",
         "links": [
             {
-                "label": "Thank you. Goodbye.",
+                "label": "Thank you.\n\nGoodbye.",
                 "destination": "introduction"
             }
         ]
@@ -278,6 +278,9 @@ function setPage(label) {
         const input = document.createElement("input");
         // Limit the number of characters you can input 
         input.setAttribute("maxlength", "68");
+        //Set it to autofocus in a text box
+        input.setAttribute("autofocus", "true");
+
         input.classList.add("answer");
         input.classList.add("box");
         links.appendChild(input);
