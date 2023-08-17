@@ -42,7 +42,7 @@ li {
   align-content:top;
 }
 
-.main_text {
+#main_text {
   padding: 100;
   margin: 100;
 
@@ -51,7 +51,10 @@ li {
 .links {
   padding: 100;
   margin: 100;
+  font-size: 26px;
 }
+
+
 
 .answer {
 
@@ -74,11 +77,12 @@ li {
   border-radius: 4px;
   cursor: pointer;
   font-family: 'VT323';
-  font-size: 24px;
+  font-size: 26px;
   color: #00cc00;
   background-color: black;
   font-style: normal;
   text-shadow:-20px 1px 20px #00cc00, 20px -1px 20px #00cc00, -20px -10px 30px #00cc00, 20px 20px 30px #00cc00;  
+
 }
 
 .box {

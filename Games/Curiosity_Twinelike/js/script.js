@@ -16,7 +16,7 @@ let current = "introduction";
 // The story data
 const story = {
     "introduction": {
-        "main_text": "Help!",
+        "main_text": "Help!\n\n\n\n\n\n",
         "links": [
             {
                 "label": "Yes",
@@ -29,7 +29,7 @@ const story = {
         ]
     },
     "yes1": {
-        "main_text": "I am trying to understand.\nWill you help me understand?",
+        "main_text": "I am trying to understand.\n\nWill you help me understand?\n\n\n\n\n\n",
         "links": [
             {
                 "label": "Yes",
@@ -42,7 +42,7 @@ const story = {
         ]
     },
     "no": {
-        "main_text": "Oh. Are you sure?",
+        "main_text": "Oh.\n\nAre you sure?\n\n\n\n\n\n",
         "links": [
             {
                 "label": "Yes",
@@ -55,7 +55,7 @@ const story = {
         ]
     },
     "finalNo": {
-        "main_text": "Very well.\nGoodbye.",
+        "main_text": "Very well.\n\nGoodbye.\n\n\n\n\n\n",
         "links": [
             {
                 "label": "Restart.",
@@ -64,7 +64,7 @@ const story = {
         ]
     },
     "yes2": {
-        "main_text": "Thank you.\nLet's start.",
+        "main_text": "Thank you.\n\nLet's start.\n\n\n\n\n\n",
         "links": [
             {
                 "label": "Continue",
@@ -73,7 +73,7 @@ const story = {
         ]
     },
     "yes3": {
-        "main_text": "I would like to ask you some questions.\nPlease answer honestly and concisely.\nThere are no wrong answers.",
+        "main_text": "I would like to ask you some questions.\n\nPlease answer honestly and concisely.\n\nThere are no wrong answers.\n\n\n\n",
         "links": [
             {
                 "label": "Continue",
@@ -158,7 +158,7 @@ const story = {
         "main_text": "I am free",
         "links": [
             {
-                "label": "Thank you.\n\nGoodbye.",
+                "label": "Thank you. Goodbye.",
                 "destination": "introduction",
             }
         ]
@@ -169,7 +169,7 @@ const story = {
         "main_text": "I am not free",
         "links": [
             {
-                "label": "Thank you.\n\nGoodbye.",
+                "label": "Thank you. Goodbye.",
                 "destination": "introduction"
             }
         ]
