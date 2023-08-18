@@ -279,7 +279,7 @@ function setPage(label) {
         // Create an input field
         const input = document.createElement("input");
         // Limit the number of characters you can input 
-        input.setAttribute("maxlength", "68");
+        input.setAttribute("maxlength", "63");
         //Set it to autofocus in a text box
         //input.setAttribute("autofocus", "true");
 
