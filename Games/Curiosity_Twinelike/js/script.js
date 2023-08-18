@@ -208,6 +208,8 @@ function setup() {
 
 // Sets the page data to the data corresponding to the label
 function setPage(label) {
+    // Clear anything already in the "answers" list
+    document.getElementById("answers").innerHTML = "";
     // Get the data for this label
     const data = story[label];
 
@@ -279,11 +281,12 @@ function setPage(label) {
         // Limit the number of characters you can input 
         input.setAttribute("maxlength", "68");
         //Set it to autofocus in a text box
-        input.setAttribute("autofocus", "true");
+        //input.setAttribute("autofocus", "true");
 
         input.classList.add("answer");
         input.classList.add("box");
         links.appendChild(input);
+        input.focus();
 
         const button = document.createElement("button");
         button.innerText = data.links[0].label;
