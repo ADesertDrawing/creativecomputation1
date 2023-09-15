@@ -18,7 +18,7 @@ let state = 'title'; //Can be: title, playing, bondyShotYou, restart
 
 //This will be the white gunbarrel thing at the beginning of Bond 
 //films which will follow the mouse position
-let user = {
+let victim = {
     x: undefined,
     y: undefined,
     size: 100
@@ -62,6 +62,8 @@ function setup() {
     ellipse(bondy.x,bondy.y,bondy.size);
     pop();
 }
+
+//setting up the 3 states: title, playing, and gameover screens
 function draw() {
     background(0); 
     if (state === 'title') {
@@ -73,23 +75,25 @@ function draw() {
     else if (state === 'bondyShotYou') {
         bondyShotYou();
     }
-
+    else if (state === 'mousePressed') {
+        mousePressed();
+    }
 
 //Makes a white circle following the mouse position
 function playing () {
-user.x = mouseX;
-user.y = mouseY;
+victim.x = mouseX;
+victim.y = mouseY;
 push();
 fill(255);
 noStroke();
-ellipse(user.x,user.y,user.size);
+ellipse(victim.x,victim.y,victim.size);
 pop();
 
 //Check the distance between the 2 circles
-let d = dist(bondy.x,bondy.y,user.x,user.y);
+let d = dist(bondy.x,bondy.y,victim.x,victim.y);
 
-// Now we can ask if they're overlapping, show pic and stop
-    if (d < bondy.size/2 + user.size/2) {
+// Now we can ask if they're overlapping, go to gameover state
+    if (d < bondy.size/2 + victim.size/2) {
         bondyShotYou ();
     }
 }
@@ -98,7 +102,7 @@ let d = dist(bondy.x,bondy.y,user.x,user.y);
 
 //Shows bondy shooting you, plays a gunshot sound and displays message
 function bondyShotYou () {
-    image(bondybang,user.x-50,user.y-50);
+    image(bondybang,victim.x-50,victim.y-50);
     gunsound.play();
 
 //Make blood drip down the screen
