@@ -1,3 +1,3 @@
 # Images folder
 
-This is the folder where you would keep all the images associated with your project, such as `.png`, `.jpg`, and other formats. An example image, `clown.png`, is here in case you need something to play around with.
+Here's a pretty cool picture I drew. Yes I am good at drawing. You're welcome. Thank you. No, thank YOU. YOU'RE welcome. Mm.

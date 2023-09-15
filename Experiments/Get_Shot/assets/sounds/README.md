@@ -1,3 +1,3 @@
 # Sounds folder
 
-This is the folder where you would keep all the sound files associated with your project, such as `.mp3`, `.wav`, and other formats. An example sound, `bark.wav`, is here in case you need something to play around with.
+This gunshot sound is by coolguy244e and is the sound of slamming a door. I found all the real sounds too horrific. https://freesound.org/people/coolguy244e/sounds/266915/
