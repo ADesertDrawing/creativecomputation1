@@ -4,24 +4,26 @@ by A Desert Drawing
 */
 "use strict";
 
-let barkSFX;
-
-let rates = [1.5,1.75,2.25,2.5,2.75,3];
+let images = [];
+let displayImage;
 
 function preload() {
-    barkSFX = loadSound(`assets/sounds/bark.wav`);
+    for (let i = 0; i < 10; i++) {
+        images[i] = loadImage(`assets/images/clown-${i}.png`);
+    }
 }
 
 function setup() {
     createCanvas(600,600);
+
+    displayImage = random(images);
 }
 
 function draw() {
     background(0);
-}
 
-function mousePressed() {
-    let randomRate = random(rates);
-    barkSFX.rate(randomRate);
-    barkSFX.play();
+    push();
+    imageMode(CENTER);
+    image(displayImage,width/2,height/2);
+    pop();
 }
