@@ -29,6 +29,19 @@ function setup() {
         // Add the flower to the array of flowers
         garden.flowers.push(flower);
     }
+    // NEW! Sort the array using the sortByY() function
+    garden.flowers.sort(sortByY);
+}
+
+// sortByY() takes two flowers as parameters to compare
+// It should return a negative number if flower1 should come
+// BEFORE flower2 in the array, a positive number if flower1 should
+// come AFTER flower2 in the array, and 0 if there they have the
+// same priority
+function sortByY(flower1, flower2) {
+    // We achieve the above by subtracting flower2's y position
+    // from flower1's! How elegant!
+    return flower1.y - flower2.y;
 }
 
 // draw()
