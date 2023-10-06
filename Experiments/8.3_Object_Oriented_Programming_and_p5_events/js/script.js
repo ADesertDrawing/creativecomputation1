@@ -41,7 +41,6 @@ function setup() {
     }
 }
 
-
 // draw()
 // Displays our flowers
 function draw() {
@@ -52,5 +51,12 @@ function draw() {
     for (let i = 0; i < garden.flowers.length; i++) {
         let flower = garden.flowers[i];
         flower.display();
+    }
+}
+
+function mousePressed() {
+    for (let i = 0; i < garden.flowers.length; i++) {
+        let flower = garden.flowers[i];
+        flower.mousePressed();
     }
 }
