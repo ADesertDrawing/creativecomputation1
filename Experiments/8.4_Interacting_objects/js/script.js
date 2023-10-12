@@ -51,6 +51,9 @@ function draw() {
     // Loop through all the flowers in the array and display them
     for (let i = 0; i < garden.flowers.length; i++) {
         let flower = garden.flowers[i];
-        flower.display();
+        if (flower.alive) {
+            flower.shrink();
+            flower.display();
+        }
     }
 }
