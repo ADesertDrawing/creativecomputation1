@@ -29,7 +29,7 @@ class Bee {
 
     tryToPollinate(flower) {
         let d = dist(this.x, this.y, flower.x, flower.y);
-        if (d < this.size / 2 + flower.size / 2 + flower.petalThickness) {
+        if (d < this.size / 2 + flower.size / 2) {
             this.grow();
             flower.pollinate();
         }
@@ -37,7 +37,7 @@ class Bee {
 
     grow() {
         this.size = this.size + this.growRate;
-        this.size = constrain(this.size, this.minSize, this.maxSize);
+        this.size = constrain(this.size, 0, this.maxSize);
     }
 
     // move() moves the bee by potentially changing direction

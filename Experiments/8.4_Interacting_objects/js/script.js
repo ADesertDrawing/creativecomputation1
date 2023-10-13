@@ -70,6 +70,7 @@ function draw() {
     for (let i = 0; i < garden.bees.length; i++) {
         let bee = garden.bees[i];
         if (bee.alive) {
+            bee.shrink();
             bee.move();
             bee.display();
 
