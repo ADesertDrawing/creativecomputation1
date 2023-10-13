@@ -9,6 +9,8 @@ class Flower {
         this.stemLength = stemLength;
         this.stemThickness = 10;
         this.petalThickness = 10;
+        this.maxPetalThickness = 10;
+        this.maxSize = size;
         // Color information
         this.stemColor = {
             r: 50,
@@ -32,6 +34,15 @@ class Flower {
         if (this.size <= 0 || this.petalThickness <= 0) {
             this.alive = false;
         }
+    }
+
+    pollinate() {
+        let growth = random(0, 0.5);
+        this.size = this.size + growth;
+        this.petalThickness = this.petalThickness + growth / 10;
+
+        this.size = constrain(this.size, 0, this.maxSize);
+        this.petalThickness = constrain(this.petalThickness, 0, this.maxPetalThickness);
     }
 
     // display()
