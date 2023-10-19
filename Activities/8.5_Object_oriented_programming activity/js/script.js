@@ -6,7 +6,7 @@ by A Desert Drawing
 let gravityForce = 0.0025;
 let paddle;
 let balls = [];
-let numBalls = 3;
+let numBalls = 10;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
@@ -30,7 +30,7 @@ function draw() {
         let ball = balls[i];
         ball.gravity(gravityForce);
         ball.move();
-        ball.bounce();
+        ball.bounce(paddle);
         ball.display();
     }
 }
