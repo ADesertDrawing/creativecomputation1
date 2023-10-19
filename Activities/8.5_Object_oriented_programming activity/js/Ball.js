@@ -31,4 +31,11 @@ class Ball {
             this.ay = 0;
         }
     }
+    display() {
+        push();
+        fill(255, 50, 50);
+        stroke(0);
+        ellipse(this.x, this.y, this.size);
+        pop();
+    }
 }
