@@ -2,14 +2,19 @@
 White towelling bathrobe
 by A Desert Drawing
 */
+
+
 "use strict";
 
 let state = 'shooting'; //can be title etc...
 
 let shootingBG;
+let shootingBGclose;
 let guyHead;
 let guyRightArm;
 let guyLeftArm;
+
+
 
 //This is the guy's body
 let guyBody = {
@@ -21,7 +26,8 @@ let guyBody = {
 let blood = {
     x: undefined,
     y: undefined,
-    size: 120
+    size: 10,
+
 };
 
 
@@ -31,35 +37,29 @@ let gunsound;
 
 function preload() {
     //Preloading the pics & gun sound
-    shootingBG = loadImage('assets/images/shootingBGBody.png')
-    guyHead = loadImage('assets/images/shootingHead.png')
-    guyRightArm = loadImage('assets/images/shootingRight.png')
-    guyLeftArm = loadImage('assets/images/shootingLeft.png')
+    shootingBG = loadImage('assets/images/shootingBG.png')
+    shootingBGclose = loadImage('assets/images/shootingBGclose.png')
     gunsound = loadSound('assets/sounds/gunsound.mp3');
 }
 
 function setup() {
     createCanvas(900, 450);
-    image(shootingBG, 0, 0);
-    image(guyHead, 0, 0);
-    image(guyRightArm, 0, 0);
-    image(guyLeftArm, 0, 0);
-    // let guyHead = new GuyHead(0, 0);
+    image(shootingBGclose, 0, 0);
+
+
+
+    //Slow down the frame rate to separate out the shots 
+    frameRate(10);
 
     //Makes an unseen circle to represent the victim's body
     push();
-    guyBody.x = (475);
-    guyBody.y = (200);
+    guyBody.x = (550);
+    guyBody.y = (310);
     noFill();
     // noStroke();
-    ellipse(guyBody.x, guyBody.y, 90, 180);
+    ellipse(guyBody.x, guyBody.y, 280, 280);
     pop();
 }
-
-
-
-
-
 
 function draw() {
 
@@ -86,14 +86,19 @@ function draw() {
 
 //Makes a bloody circle following the mouse position
 function shooting() {
+
+    let xc = constrain(mouseX, blood);
+
     blood.x = mouseX;
     blood.y = mouseY;
     push();
-    fill(255, 0, 0);
+    fill(200, 0, 0);
     noStroke();
     ellipse(blood.x, blood.y, blood.size);
     pop();
 }
+
+
 
 function mousePressed() {
     if (state === 'title') {
