@@ -28,15 +28,16 @@ function preload() {
 function setup() {
     createCanvas(900, 450);
     image(shootingBG, 0, 0);
-    image(guyHead, 0, 0);
-    image(guyRightArm, 0, 0);
-    image(guyLeftArm, 0, 0);
+    // let guyHead = new GuyHead(0, 0);
 
 }
 
 function draw() {
-
-
+    image(guyHead, 0, 0);
+    image(guyRightArm, 0, 0);
+    image(guyLeftArm, 0, 0);
+    // guyHead.move();
+    // guyHead.display();
 }
 
 
