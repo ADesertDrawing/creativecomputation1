@@ -6,7 +6,7 @@ by A Desert Drawing
 
 "use strict";
 
-let state = 'shooting'; //can be title etc...
+let state = 'title'; //can be title etc...
 
 let shootingBG;
 let shootingBGclose;
@@ -36,10 +36,10 @@ function preload() {
 
 function setup() {
     createCanvas(900, 450);
-    image(shootingBGclose, 0, 0);
+
 
     //Slow down the frame rate to separate out the shots 
-    frameRate(10);
+
 
     //Makes an unseen circle to represent the victim's body
     //Not needed now as using the square
@@ -67,25 +67,29 @@ function draw() {
         scene3();
     }
     else if (state === 'shooting') {
+        image(shootingBGclose, 0, 0);
         shooting();
     }
     else if (state === 'mousePressed') {
         mousePressed();
     }
 
+
 }
 
 //Makes a bloody circle following the mouse position
 function shooting() {
 
-
+    push();
+    frameRate(8);
     let leftWall = 443;
     let rightWall = 650;
     let topWall = 180;
     let bottomWall = 450;
 
-    // gunsound.play();
 
+
+    // Need to constrain the shots to the body area cos trees don't bleed
     // xc is the mouseX, but constrained
     // yc is the mouseY, but constrained
     // between the leftWall, rightWall, topWall and bottomWall
@@ -104,6 +108,9 @@ function shooting() {
     noStroke();
     fill(200, 0, 0);
     ellipse(xc, yc, blood.size, blood.size); // Constrained
+
+    // gunsound.play();
+    pop();
 }
 
 
@@ -120,3 +127,38 @@ function mousePressed() {
     }
 }
 
+function title() {
+    push();
+    textSize(24);
+    fill(80);
+    textAlign(CENTER, CENTER);
+    text(`White towelling bathrobe\n\n Click to start.`, width / 2, height / 2);
+    pop();
+}
+
+function scene1() {
+    push();
+    textSize(24);
+    fill(80);
+    textAlign(CENTER, CENTER);
+    text(`This is scene 1\n\n Click to continue.`, width / 2, height / 2);
+    pop();
+}
+
+function scene2() {
+    push();
+    textSize(24);
+    fill(80);
+    textAlign(CENTER, CENTER);
+    text(`This is scene 2\n\n Click to continue.`, width / 2, height / 2);
+    pop();
+}
+
+function scene3() {
+    push();
+    textSize(24);
+    fill(80);
+    textAlign(CENTER, CENTER);
+    text(`This is scene 3\n\n Click to continue.`, width / 2, height / 2);
+    pop();
+}
