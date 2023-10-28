@@ -25,6 +25,7 @@ let blood = {
     minSize: 20,
     maxSize: 40,
     grow: 1,
+    trail: [], //adding an array to remember where the blood is
 };
 
 //This is the gunshot sound which plays repeatedly
@@ -95,27 +96,46 @@ function shooting() {
     let xc = constrain(mouseX, leftWall, rightWall);
     let yc = constrain(mouseY, topWall, bottomWall);
 
-    // Draw the walls.
+    // Draw the walls if you want to see them
     noStroke();
     line(leftWall, 0, leftWall, height);
     line(rightWall, 0, rightWall, height);
     line(0, topWall, width, topWall);
     line(0, bottomWall, width, bottomWall);
 
-    // Draw xm and xc as circles.
+    // Draw circle with the xc and yc constraints
     noStroke();
     fill(200, 0, 0);
+    blood.x = xc;
+    blood.y = yc;
     ellipse(xc, yc, blood.size); // Constrained
 
     blood.size = blood.size + blood.grow;
 
     blood.size = constrain(blood.size, blood.minSize, blood.maxSize);
 
+    //Counting of i at zero and add one each time, moving along array
+    for (let i = 0; i < blood.trail.length; i++) {
+        //Pull out the position of the circle at the index of i
+        let position = blood.trail[i];
+        ellipse(position.x, position.y, blood.size);
+    }
+
+    ellipse(blood.x, blood.y, blood.size);
+
+    let newTrailPosition = {
+        x: blood.x,
+        y: blood.y
+
+    };
+
+    //Add the most recent position (newTrailPosition) into array
+    //Push adds the most recent position to the end of the array
+    blood.trail.push(newTrailPosition);
+
     gunsound.play();
     pop();
 }
-
-
 
 function mousePressed() {
     if (state === 'title') {
