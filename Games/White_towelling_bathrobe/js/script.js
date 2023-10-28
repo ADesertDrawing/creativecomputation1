@@ -22,6 +22,9 @@ let blood = {
     x: 450,
     y: 300,
     size: 20,
+    minSize: 20,
+    maxSize: 40,
+    grow: 1,
 };
 
 //This is the gunshot sound which plays repeatedly
@@ -102,7 +105,11 @@ function shooting() {
     // Draw xm and xc as circles.
     noStroke();
     fill(200, 0, 0);
-    ellipse(xc, yc, blood.size, blood.size); // Constrained
+    ellipse(xc, yc, blood.size); // Constrained
+
+    blood.size = blood.size + blood.grow;
+
+    blood.size = constrain(blood.size, blood.minSize, blood.maxSize);
 
     gunsound.play();
     pop();
