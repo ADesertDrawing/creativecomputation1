@@ -36,7 +36,7 @@ function preload() {
 
 function setup() {
     createCanvas(900, 450);
-
+    background(0);
 
     //Slow down the frame rate to separate out the shots 
 
@@ -70,11 +70,6 @@ function draw() {
         image(shootingBGclose, 0, 0);
         shooting();
     }
-    else if (state === 'mousePressed') {
-        mousePressed();
-    }
-
-
 }
 
 //Makes a bloody circle following the mouse position
@@ -109,7 +104,7 @@ function shooting() {
     fill(200, 0, 0);
     ellipse(xc, yc, blood.size, blood.size); // Constrained
 
-    // gunsound.play();
+    gunsound.play();
     pop();
 }
 
@@ -118,6 +113,9 @@ function shooting() {
 function mousePressed() {
     if (state === 'title') {
         state = 'scene1';
+    }
+    else if (state === 'scene1') {
+        state = 'scene2';
     }
     else if (state === 'scene2') {
         state = 'scene3';
@@ -132,7 +130,7 @@ function title() {
     textSize(24);
     fill(80);
     textAlign(CENTER, CENTER);
-    text(`White towelling bathrobe\n\n Click to start.`, width / 2, height / 2);
+    text(`White towelling bathrobe\n Click to start.`, width / 2, height / 2 - 150);
     pop();
 }
 
@@ -141,7 +139,7 @@ function scene1() {
     textSize(24);
     fill(80);
     textAlign(CENTER, CENTER);
-    text(`This is scene 1\n\n Click to continue.`, width / 2, height / 2);
+    text(`This is scene 1\n Click to continue.`, width / 2, height / 2 - 50);
     pop();
 }
 
@@ -150,7 +148,7 @@ function scene2() {
     textSize(24);
     fill(80);
     textAlign(CENTER, CENTER);
-    text(`This is scene 2\n\n Click to continue.`, width / 2, height / 2);
+    text(`This is scene 2\n Click to continue.`, width / 2, height / 2 + 50);
     pop();
 }
 
@@ -159,6 +157,6 @@ function scene3() {
     textSize(24);
     fill(80);
     textAlign(CENTER, CENTER);
-    text(`This is scene 3\n\n Click to continue.`, width / 2, height / 2);
+    text(`This is scene 3\n Click to continue.`, width / 2, height / 2 + 150);
     pop();
 }
