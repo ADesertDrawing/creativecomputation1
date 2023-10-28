@@ -3,10 +3,9 @@ White towelling bathrobe
 by A Desert Drawing
 */
 
-
 "use strict";
 
-let state = 'title'; //can be title etc...
+let state = 'title'; //can be title, scenes or shooting
 
 let shootingBG;
 let shootingBGclose;
@@ -23,7 +22,7 @@ let blood = {
     y: 300,
     size: 20,
     minSize: 20,
-    maxSize: 40,
+    maxSize: 70,
     grow: 1,
     trail: [], //adding an array to remember where the blood is
 };
@@ -41,23 +40,10 @@ function preload() {
 function setup() {
     createCanvas(900, 450);
     background(0);
-
-    //Slow down the frame rate to separate out the shots 
-
-
-    //Makes an unseen circle to represent the victim's body
-    //Not needed now as using the square
-    // push();
-    // guyBody.x = (550);
-    // guyBody.y = (310);
-    // noFill();
-    // // noStroke();
-    // ellipse(guyBody.x, guyBody.y, 280, 280);
-    // pop();
 }
 
 function draw() {
-
+    //Setting up the states
     if (state === 'title') {
         title();
     }
@@ -71,28 +57,27 @@ function draw() {
         scene3();
     }
     else if (state === 'shooting') {
+        //Adding background image here so it doesn't replace shots
         image(shootingBGclose, 0, 0);
         shooting();
     }
 }
 
-//Makes a bloody circle following the mouse position
+//Makes a bloody, growing circle following the mouse position
 function shooting() {
 
+    // Constrain the shots to the body area: trees don't bleed
+    // Appear between leftWall, rightWall, topWall & bottomWall
     push();
-    frameRate(8);
+    //Slow the shooting rate
+    frameRate(7);
     let leftWall = 443;
     let rightWall = 650;
     let topWall = 180;
     let bottomWall = 450;
 
-
-
-    // Need to constrain the shots to the body area cos trees don't bleed
-    // xc is the mouseX, but constrained
-    // yc is the mouseY, but constrained
-    // between the leftWall, rightWall, topWall and bottomWall
-
+    // xc is the mouseX constrained
+    // yc is the mouseY constrained
     let xc = constrain(mouseX, leftWall, rightWall);
     let yc = constrain(mouseY, topWall, bottomWall);
 
@@ -106,9 +91,9 @@ function shooting() {
     // Draw circle with the xc and yc constraints
     noStroke();
     fill(200, 0, 0);
-    blood.x = xc;
-    blood.y = yc;
-    ellipse(xc, yc, blood.size); // Constrained
+    blood.x = xc; //Draw the blood within the x constraints
+    blood.y = yc; //Draw the blood within the y constraints
+
 
     blood.size = blood.size + blood.grow;
 
