@@ -172,7 +172,7 @@ function title() {
     textSize(32);
     fill(255);
     textAlign(CENTER, CENTER);
-    text(`White towelling bathrobe`, width / 2, height / 2);
+    text(`White towelling bathrobe`, width / 2, height / 2 - 50);
     textSize(24);
     fill(150);
     text(`Click to start`, width / 2, height / 2 + 100);
