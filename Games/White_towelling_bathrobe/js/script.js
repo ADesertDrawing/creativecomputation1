@@ -7,7 +7,12 @@ by A Desert Drawing
 
 let state = 'title'; //can be title, scenes or shooting
 
-let shootingBG;
+let waitAMinute;
+let pullingUp;
+let missedYou;
+let weWont;
+let uhOh;
+let preShoot;
 let shootingBGclose;
 
 //This is the guy's body
@@ -22,7 +27,7 @@ let blood = {
     y: 300,
     size: 20,
     minSize: 20,
-    maxSize: 70,
+    maxSize: 100,
     grow: 1,
     trail: [], //adding an array to remember where the blood is
 };
@@ -32,13 +37,18 @@ let gunsound;
 
 function preload() {
     //Preloading the pics & gun sound
-    shootingBG = loadImage('assets/images/shootingBG.png')
-    shootingBGclose = loadImage('assets/images/shootingBGclose.png')
+    waitAMinute = loadImage('assets/images/0_WaitAMinute.png');
+    pullingUp = loadImage('assets/images/1_pulling_up.png');
+    missedYou = loadImage('assets/images/2_IThoughtIdMissedYou.png');
+    weWont = loadImage('assets/images/3_WeWont.png');
+    uhOh = loadImage('assets/images/4_UhOh.png');
+    preShoot = loadImage('assets/images/5_PreShooting.png');
+    shootingBGclose = loadImage('assets/images/shootingBGclose.png');
     gunsound = loadSound('assets/sounds/gunsound.mp3');
 }
 
 function setup() {
-    createCanvas(900, 450);
+    createCanvas(800, 450);
     background(0);
 }
 
@@ -46,6 +56,9 @@ function draw() {
     //Setting up the states
     if (state === 'title') {
         title();
+    }
+    if (state === 'scene0') {
+        scene0();
     }
     else if (state === 'scene1') {
         scene1();
@@ -55,6 +68,12 @@ function draw() {
     }
     else if (state === 'scene3') {
         scene3();
+    }
+    else if (state === 'scene4') {
+        scene4();
+    }
+    else if (state === 'scene5') {
+        scene5();
     }
     else if (state === 'shooting') {
         //Adding background image here so it doesn't replace shots
@@ -124,6 +143,9 @@ function shooting() {
 
 function mousePressed() {
     if (state === 'title') {
+        state = 'scene0';
+    }
+    else if (state === 'scene0') {
         state = 'scene1';
     }
     else if (state === 'scene1') {
@@ -133,42 +155,88 @@ function mousePressed() {
         state = 'scene3';
     }
     else if (state === 'scene3') {
+        state = 'scene4';
+    }
+    else if (state === 'scene4') {
+        state = 'scene5';
+    }
+    else if (state === 'scene5') {
         state = 'shooting';
     }
 }
 
 function title() {
     push();
-    textSize(24);
-    fill(80);
+    textSize(32);
+    fill(255);
     textAlign(CENTER, CENTER);
-    text(`White towelling bathrobe\n Click to start.`, width / 2, height / 2 - 150);
+    text(`White towelling bathrobe\n\n\n Click to start`, width / 2, height / 2);
+    pop();
+}
+
+function scene0() {
+    //Adding the background image
+    image(waitAMinute, 0, 0);
+    push();
+    textSize(24);
+    fill(255);
+    textAlign(CENTER, 100);
+    text(`Wait a minute!`, width / 2, 80);
     pop();
 }
 
 function scene1() {
-    push();
-    textSize(24);
-    fill(80);
-    textAlign(CENTER, CENTER);
-    text(`This is scene 1\n Click to continue.`, width / 2, height / 2 - 50);
-    pop();
+    //Adding the background image
+    image(pullingUp, 0, 0);
+    // push();
+    // textSize(24);
+    // fill(80);
+    // textAlign(CENTER, CENTER);
+    // text(`This is scene 1\n Click to continue.`, width / 2, height / 2 - 50);
+    // pop();
 }
 
 function scene2() {
+    //Adding the background image
+    image(missedYou, 0, 0);
     push();
     textSize(24);
-    fill(80);
+    fill(255);
     textAlign(CENTER, CENTER);
-    text(`This is scene 2\n Click to continue.`, width / 2, height / 2 + 50);
+    text(`I was afraid\nyou'd miss me`, width / 2 - 70, 50);
     pop();
 }
 
 function scene3() {
+    //Adding the background image
+    image(weWont, 0, 0);
+    push();
+
+    textSize(24);
+    fill(255);
+    textAlign(CENTER, CENTER);
+    text(`Don't worry.`, width / 2 - 110, height / 2 + 30);
+    pop();
+}
+
+function scene4() {
+    //Adding the background image
+    image(uhOh, 0, 0);
+    // push();
+    // textSize(24);
+    // fill(80);
+    // textAlign(CENTER, CENTER);
+    // text(`This is scene 4\n Click to continue.`, width / 2, height / 2 + 150);
+    // pop();
+}
+
+function scene5() {
+    //Adding the background image
+    image(preShoot, 0, 0);
     push();
     textSize(24);
-    fill(80);
+    fill(255);
     textAlign(CENTER, CENTER);
-    text(`This is scene 3\n Click to continue.`, width / 2, height / 2 + 150);
+    text(`We won't`, width / 2 - 80, height / 2 - 30);
     pop();
 }
