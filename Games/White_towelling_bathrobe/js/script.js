@@ -50,6 +50,7 @@ function preload() {
 function setup() {
     createCanvas(800, 450);
     background(0);
+
 }
 
 function draw() {
@@ -166,11 +167,15 @@ function mousePressed() {
 }
 
 function title() {
+    background(0);
     push();
     textSize(32);
     fill(255);
     textAlign(CENTER, CENTER);
-    text(`White towelling bathrobe\n\n\n Click to start`, width / 2, height / 2);
+    text(`White towelling bathrobe`, width / 2, height / 2);
+    textSize(24);
+    fill(150);
+    text(`Click to start`, width / 2, height / 2 + 100);
     pop();
 }
 
