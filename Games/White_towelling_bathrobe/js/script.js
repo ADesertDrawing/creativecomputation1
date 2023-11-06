@@ -27,8 +27,8 @@ let blood = {
     y: 300,
     size: 20,
     minSize: 20,
-    maxSize: 100,
-    grow: 1,
+    maxSize: 70,
+    grow: .5,
     trail: [], //adding an array to remember where the blood is
 };
 
