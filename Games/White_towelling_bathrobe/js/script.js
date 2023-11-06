@@ -15,12 +15,12 @@ let uhOh;
 let preShoot;
 let shootingBGclose;
 
-//This is the guy's body
-let guyBody = {
-    x: undefined,
-    y: undefined,
-    size: 100
-};
+// //This is the guy's hit box 1
+// let guyBody1 = {
+//     x: undefined,
+//     y: undefined,
+//     size: 100
+// };
 //This is the blood that appears at the mouse position
 let blood = {
     x: 450,
@@ -50,7 +50,6 @@ function preload() {
 function setup() {
     createCanvas(800, 450);
     background(0);
-
 }
 
 function draw() {
@@ -90,10 +89,10 @@ function shooting() {
     // Appear between leftWall, rightWall, topWall & bottomWall
     push();
     //Slow the shooting rate
-    frameRate(7);
-    let leftWall = 443;
-    let rightWall = 650;
-    let topWall = 180;
+    frameRate(7.5);
+    let leftWall = 350;
+    let rightWall = 500;
+    let topWall = 160;
     let bottomWall = 450;
 
     // xc is the mouseX constrained
@@ -110,7 +109,7 @@ function shooting() {
 
     // Draw circle with the xc and yc constraints
     noStroke();
-    fill(200, 0, 0);
+    fill(170, 0, 0);
     blood.x = xc; //Draw the blood within the x constraints
     blood.y = yc; //Draw the blood within the y constraints
 
@@ -193,12 +192,6 @@ function scene0() {
 function scene1() {
     //Adding the background image
     image(pullingUp, 0, 0);
-    // push();
-    // textSize(24);
-    // fill(80);
-    // textAlign(CENTER, CENTER);
-    // text(`This is scene 1\n Click to continue.`, width / 2, height / 2 - 50);
-    // pop();
 }
 
 function scene2() {
@@ -216,7 +209,6 @@ function scene3() {
     //Adding the background image
     image(weWont, 0, 0);
     push();
-
     textSize(24);
     fill(255);
     textAlign(CENTER, CENTER);
@@ -227,12 +219,6 @@ function scene3() {
 function scene4() {
     //Adding the background image
     image(uhOh, 0, 0);
-    // push();
-    // textSize(24);
-    // fill(80);
-    // textAlign(CENTER, CENTER);
-    // text(`This is scene 4\n Click to continue.`, width / 2, height / 2 + 150);
-    // pop();
 }
 
 function scene5() {
@@ -242,6 +228,6 @@ function scene5() {
     textSize(24);
     fill(255);
     textAlign(CENTER, CENTER);
-    text(`We won't`, width / 2 - 80, height / 2 - 30);
+    text(`We won't`, width / 2 - 130, height / 2 - 30);
     pop();
 }
