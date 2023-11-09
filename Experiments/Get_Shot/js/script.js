@@ -2,9 +2,7 @@
 Get Shot
 by A Desert Drawing
 
-After a brief break, an attempt to make a thing to review what
-I've learnt, refresh my memory, and to try to put a few elements
-working together.
+Many thanks to Pippin Barr for all the help.
 
 This simulates the "gunbarrel" introduction of Bond films, where the viewer
 gets shot by Bond. The object of the game is to move your mouse around so
@@ -14,7 +12,7 @@ Blame broccoli.
 
 "use strict";
 
-let state = 'title'; //Can be: title, playing, bondyShotYou
+let state = 'title'; //Can be: title, intro, playing, bondyShotYou
 
 //This will be the white gunbarrel thing at the beginning of Bond
 //films which will follow the mouse position
@@ -55,16 +53,9 @@ function setup() {
     // push();
     bondy.x = random(0, width);
     bondy.y = random(0, height);
-
-    // There's no real point in drawing Bondy here, it'll
-    // be overwritten by the next frame anyway
-    // noFill();
-    // noStroke();
-    // ellipse(bondy.x, bondy.y, bondy.size);
-    // pop();
 }
 
-//Setting up the 3 states: title, playing, and gameover screens
+//Setting up the 4 states: title, intro, playing, and gameover screens
 function draw() {
     // push();
     background(0);
@@ -72,6 +63,9 @@ function draw() {
     // console.log(`adding black background`);
     if (state === 'title') {
         title();
+    }
+    else if (state === 'intro') {
+        intro();
     }
     else if (state === 'playing') {
         playing();
@@ -83,8 +77,22 @@ function draw() {
 
 //Make the title function
 function title() {
-    state = 'title';
-    console.log(`title start`);
+
+    push();
+    textSize(32);
+    fill(255);
+    textAlign(CENTER, CENTER);
+    text(`Get shot`, width / 2, height / 2 - 50);
+    textSize(24);
+    fill(150);
+    text(`by A Desert Drawing`, width / 2, height / 2 - 10);
+    text(`Click to start`, width / 2, height / 2 + 100);
+    pop();
+}
+//Make the intro function
+function intro() {
+
+    console.log(`intro start`);
     push();
     textSize(24);
     fill(80);
@@ -95,7 +103,7 @@ function title() {
 
 //Makes a white circle following the mouse position
 function playing() {
-    // state = 'playing'; // Not needed
+
     // console.log(`playing`);
     victim.x = mouseX;
     victim.y = mouseY;
@@ -150,8 +158,13 @@ function bondyShotYou() {
 function mousePressed() {
     console.log(`inmousepress`);
     if (state === 'title') {
+        state = 'intro';
+    }
+
+    else if (state === 'intro') {
         state = 'playing';
     }
+
     else if (state === 'bondyShotYou') {
         state = 'title';
         // You should randomize Bondy's position here again or
