@@ -95,9 +95,9 @@ function intro() {
     console.log(`intro start`);
     push();
     textSize(24);
-    fill(80);
+    fill(180);
     textAlign(CENTER, CENTER);
-    text(`Find Bondy. \n Beware, though. \n He WILL shoot you. \n He always does it. \n\n Click to start.`, width / 2, height / 2);
+    text(`Find Bondy. \n Beware, though. \n He WILL shoot you. \n He always does it.`, width / 2, height / 2);
     pop();
 }
 
@@ -145,7 +145,7 @@ function bondyShotYou() {
 
     push();
     textSize(24);
-    fill(120);
+    fill(180);
     textAlign(CENTER, CENTER);
     text(`Bondy shot you. Tut. \n Click to try again. \n \n (He'll do it again though, you know.)`, width / 2, height - 100);
     pop();
