@@ -173,7 +173,8 @@ function title() {
     textAlign(CENTER, CENTER);
     text(`White towelling bathrobe`, width / 2, height / 2 - 50);
     textSize(24);
-    fill(150);
+    fill(180);
+    text(`by A Desert Drawing`, width / 2, height / 2 - 10);
     text(`Click to start`, width / 2, height / 2 + 100);
     pop();
 }
