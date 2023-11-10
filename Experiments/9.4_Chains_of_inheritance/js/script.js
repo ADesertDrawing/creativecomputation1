@@ -7,6 +7,7 @@ by A Desert Drawing
 let vehicles = [];
 let numCars = 10;
 let numMotorcycles = 10;
+let numSportsCars = 3;
 
 function setup() {
     createCanvas(600, 600);
@@ -21,6 +22,12 @@ function setup() {
         let y = random(0, height); //appear randomly on y axis
         let motorcycle = new Motorcycle(x, y);
         vehicles.push(motorcycle);
+    }
+    for (let i = 0; i < numSportsCars; i++) {
+        let x = random(0, width); //appear randomly on x axis
+        let y = random(0, height); //appear randomly on y axis
+        let sportscar = new SportsCar(x, y);
+        vehicles.push(sportscar);
     }
 }
 
