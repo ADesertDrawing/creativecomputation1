@@ -6,7 +6,7 @@ class SportsCar extends Car {
     display() {
         super.display();
         push();
-        fill(0, 255, 0);
+        fill(255, 255, 0);
         rectMode(CENTER);
         noStroke();
         rect(this.x, this.y - this.height / 10, this.width, this.height / 20);
