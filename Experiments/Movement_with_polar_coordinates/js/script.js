@@ -1,5 +1,5 @@
 /**
-Title of Project
+Movement with polar coordinates
 by A Desert Drawing
 */
 "use strict";
