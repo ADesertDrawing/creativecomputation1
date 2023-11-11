@@ -5,7 +5,7 @@ by A Desert Drawing
 
 "use strict";
 
-let state = 'title'; //can be title, scenes or shooting
+let state = 'title'; //can be title, scenes, shooting or blackScreen
 
 let waitAMinute;
 let pullingUp;
@@ -14,13 +14,11 @@ let weWont;
 let uhOh;
 let preShoot;
 let shootingBGclose;
+//NEW - a timer to count the number of frames in the shooting state
+let shootingTimer = 0;
+// NEW! A variable to store how long the shooting is (in frames)
+let shootingLength = 50; // 50 frames (slowed down)
 
-// //This is the guy's hit box 1
-// let guyBody1 = {
-//     x: undefined,
-//     y: undefined,
-//     size: 100
-// };
 //This is the blood that appears at the mouse position
 let blood = {
     x: 450,
@@ -80,10 +78,20 @@ function draw() {
         image(shootingBGclose, 0, 0);
         shooting();
     }
+    else if (state === 'blackScreen') {
+        blackScreen();
+    }
 }
 
 //Makes a bloody, growing circle following the mouse position
 function shooting() {
+    // NEW! Increase the timer's count by one frame
+    shootingTimer++;
+    // NEW! Check if we have reached the end of our timer
+    if (shootingTimer >= shootingLength) {
+        // That's enough shooting - go to blackScreen
+        blackScreen();
+    }
 
     // Constrain the shots to the body area: trees don't bleed
     // Appear between leftWall, rightWall, topWall & bottomWall
@@ -112,10 +120,7 @@ function shooting() {
     fill(170, 0, 0);
     blood.x = xc; //Draw the blood within the x constraints
     blood.y = yc; //Draw the blood within the y constraints
-
-
     blood.size = blood.size + blood.grow;
-
     blood.size = constrain(blood.size, blood.minSize, blood.maxSize);
 
     //Counting of i at zero and add one each time, moving along array
@@ -130,13 +135,12 @@ function shooting() {
     let newTrailPosition = {
         x: blood.x,
         y: blood.y
-
     };
 
     //Add the most recent position (newTrailPosition) into array
     //Push adds the most recent position to the end of the array
     blood.trail.push(newTrailPosition);
-
+    //Play the gunsound
     gunsound.play();
     pop();
 }
@@ -162,6 +166,9 @@ function mousePressed() {
     }
     else if (state === 'scene5') {
         state = 'shooting';
+    }
+    else if (state === 'blackScreen') {
+        state = 'title';
     }
 }
 
@@ -231,4 +238,9 @@ function scene5() {
     textAlign(CENTER, CENTER);
     text(`We won't`, width / 2 - 130, height / 2 - 30);
     pop();
+}
+
+function blackScreen() {
+    background(0);
+
 }

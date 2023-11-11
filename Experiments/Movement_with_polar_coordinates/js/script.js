@@ -8,7 +8,11 @@ let circle = {
     y: 300,
     size: 100,
     angle: 0, // Facing right to start
-    speed: 5 // Moving at 5 pixels per frame
+    speed: 0, // Start out not moving
+    maxSpeed: 10, // Moving at 5 pixels per frame
+    acceleration: 0.1, // How much velocity is gained when accelerating
+    braking: -0.5, // How much velocity is lost when breaking
+    drag: -0.05 // How much velocity is lost when neither accelerating nor braking
 };
 
 function setup() {
@@ -24,8 +28,6 @@ function draw() {
     display();
 }
 
-// handleInput() steers the circle's angle with LEFT and RIGHT
-// and makes the circle move with UP and stop otherwise
 function handleInput() {
     if (keyIsDown(LEFT_ARROW)) {
         // Turn LEFT if the LEFT arrow is pressed
@@ -37,17 +39,22 @@ function handleInput() {
     }
 
     if (keyIsDown(UP_ARROW)) {
-        // Move if the UP ARROW is pressed
-        circle.speed = 5;
+        // Accelerate forward if the UP ARROW is pressed
+        circle.speed += circle.acceleration;
+        circle.speed = constrain(circle.speed, 0, circle.maxSpeed);
+    }
+    // Brake if the DOWN ARROW is pressed
+    else if (keyIsDown(DOWN_ARROW)) {
+        circle.speed += circle.braking;
+        circle.speed = constrain(circle.speed, 0, circle.maxSpeed);
     }
     else {
-        // Don't move if the UP ARROW isn't pressed
-        circle.speed = 0;
+        // Apply drag if neither are pressed
+        circle.speed += circle.drag;
+        circle.speed = constrain(circle.speed, 0, circle.maxSpeed);
     }
 }
 
-// move() uses the polar coordinates formula to convert
-// speed and angle to standard velocities
 function move() {
     // The magical formula!
     let vx = circle.speed * cos(circle.angle);
@@ -58,8 +65,6 @@ function move() {
     circle.y += vy;
 }
 
-// wrap() checks if the circle has gone off the canvas and wraps it
-// to the opposite edge
 function wrap() {
     if (circle.x > width) {
         circle.x -= width;
@@ -76,8 +81,6 @@ function wrap() {
     }
 }
 
-// display() draws the circle with a "nose" so we can see which way
-// it's facing
 function display() {
     push();
     noStroke();
