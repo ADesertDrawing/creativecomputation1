@@ -14,10 +14,17 @@ let weWont;
 let uhOh;
 let preShoot;
 let shootingBGclose;
+//NEW Set a max maxBloodTrailLength to move on to blackScreen when it reaches it
+let maxBloodTrailLength = 60;
+//I don't think this timer below is needed if I use the maxBloodTrailLength as a counter
 //NEW - a timer to count the number of frames in the shooting state
-let shootingTimer = 0;
+// let shootingTimer = 0;
 // NEW! A variable to store how long the shooting is (in frames)
-let shootingLength = 50; // 50 frames (slowed down)
+// let shootingLength = 40; // 50 frames (slowed down)
+//NEW - a timer to count the number of frames in the blackScreen state
+let blackScreenTimer = 0;
+// NEW! A variable to store how long the blackScreen shooting is (in frames)
+let blackScreenLength = 50; // 25 frames (slowed down)
 
 //This is the blood that appears at the mouse position
 let blood = {
@@ -46,6 +53,7 @@ function preload() {
 }
 
 function setup() {
+
     createCanvas(800, 450);
     background(0);
 }
@@ -86,12 +94,12 @@ function draw() {
 //Makes a bloody, growing circle following the mouse position
 function shooting() {
     // NEW! Increase the timer's count by one frame
-    shootingTimer++;
+    // shootingTimer++;
     // NEW! Check if we have reached the end of our timer
-    if (shootingTimer >= shootingLength) {
-        // That's enough shooting - go to blackScreen
-        blackScreen();
-    }
+    // if (shootingTimer >= shootingLength) {
+    // That's enough shooting - go to blackScreen
+    // blackScreen();
+    // }
 
     // Constrain the shots to the body area: trees don't bleed
     // Appear between leftWall, rightWall, topWall & bottomWall
@@ -142,6 +150,10 @@ function shooting() {
     blood.trail.push(newTrailPosition);
     //Play the gunsound
     gunsound.play();
+    // //If the blood gets to a certain point, go to blackScreen
+    if (blood.trail.length >= maxBloodTrailLength) {
+        blackScreen();
+    }
     pop();
 }
 
@@ -167,13 +179,14 @@ function mousePressed() {
     else if (state === 'scene5') {
         state = 'shooting';
     }
-    else if (state === 'blackScreen') {
-        state = 'title';
-    }
+    // else if (state === 'blackScreen') {
+    //     state = 'title';
+    // }
 }
 
 function title() {
     background(0);
+
     push();
     textSize(32);
     fill(255);
@@ -241,6 +254,14 @@ function scene5() {
 }
 
 function blackScreen() {
-    background(0);
 
+    background(0);
+    gunsound.stop();
+    // NEW! Increase the blackScreen timer's count by one frame
+    blackScreenTimer++;
+    // NEW! Check if we have reached the end of our blackScreen timer
+    if (blackScreenTimer >= blackScreenLength) {
+        // That's enough blackScreen - go to title
+        title();
+    }
 }
