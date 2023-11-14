@@ -53,7 +53,6 @@ function preload() {
 }
 
 function setup() {
-
     createCanvas(800, 450);
     background(0);
 }
@@ -89,72 +88,6 @@ function draw() {
     else if (state === 'blackScreen') {
         blackScreen();
     }
-}
-
-//Makes a bloody, growing circle following the mouse position
-function shooting() {
-    // NEW! Increase the timer's count by one frame
-    // shootingTimer++;
-    // NEW! Check if we have reached the end of our timer
-    // if (shootingTimer >= shootingLength) {
-    // That's enough shooting - go to blackScreen
-    // blackScreen();
-    // }
-
-    // Constrain the shots to the body area: trees don't bleed
-    // Appear between leftWall, rightWall, topWall & bottomWall
-    push();
-    //Slow the shooting rate
-    frameRate(7.5);
-    let leftWall = 350;
-    let rightWall = 500;
-    let topWall = 160;
-    let bottomWall = 450;
-
-    // xc is the mouseX constrained
-    // yc is the mouseY constrained
-    let xc = constrain(mouseX, leftWall, rightWall);
-    let yc = constrain(mouseY, topWall, bottomWall);
-
-    // Draw the walls if you want to see them
-    noStroke();
-    line(leftWall, 0, leftWall, height);
-    line(rightWall, 0, rightWall, height);
-    line(0, topWall, width, topWall);
-    line(0, bottomWall, width, bottomWall);
-
-    // Draw circle with the xc and yc constraints
-    noStroke();
-    fill(170, 0, 0);
-    blood.x = xc; //Draw the blood within the x constraints
-    blood.y = yc; //Draw the blood within the y constraints
-    blood.size = blood.size + blood.grow;
-    blood.size = constrain(blood.size, blood.minSize, blood.maxSize);
-
-    //Counting of i at zero and add one each time, moving along array
-    for (let i = 0; i < blood.trail.length; i++) {
-        //Pull out the position of the circle at the index of i
-        let position = blood.trail[i];
-        ellipse(position.x, position.y, blood.size);
-    }
-
-    ellipse(blood.x, blood.y, blood.size);
-
-    let newTrailPosition = {
-        x: blood.x,
-        y: blood.y
-    };
-
-    //Add the most recent position (newTrailPosition) into array
-    //Push adds the most recent position to the end of the array
-    blood.trail.push(newTrailPosition);
-    //Play the gunsound
-    gunsound.play();
-    // //If the blood gets to a certain point, go to blackScreen
-    if (blood.trail.length >= maxBloodTrailLength) {
-        blackScreen();
-    }
-    pop();
 }
 
 function mousePressed() {
@@ -251,6 +184,73 @@ function scene5() {
     fill(255);
     textAlign(CENTER, CENTER);
     text(`We won't`, width / 2 - 130, height / 2 - 30);
+    pop();
+}
+
+//Makes a bloody, growing circle following the mouse position
+function shooting() {
+    // NEW! Increase the timer's count by one frame
+    // shootingTimer++;
+    // NEW! Check if we have reached the end of our timer
+    // if (shootingTimer >= shootingLength) {
+    // That's enough shooting - go to blackScreen
+    // blackScreen();
+    // }
+
+
+    push();
+    //Slow the shooting rate
+    frameRate(7.5);
+    // Constrain the shots to the body area: trees don't bleed
+    // Appear between leftWall, rightWall, topWall & bottomWall
+    let leftWall = 350;
+    let rightWall = 500;
+    let topWall = 160;
+    let bottomWall = 450;
+
+    // xc is the mouseX constrained
+    // yc is the mouseY constrained
+    let xc = constrain(mouseX, leftWall, rightWall);
+    let yc = constrain(mouseY, topWall, bottomWall);
+
+    // Draw the walls if you want to see them
+    noStroke();
+    line(leftWall, 0, leftWall, height);
+    line(rightWall, 0, rightWall, height);
+    line(0, topWall, width, topWall);
+    line(0, bottomWall, width, bottomWall);
+
+    // Draw circle with the xc and yc constraints
+    noStroke();
+    fill(170, 0, 0);
+    blood.x = xc; //Draw the blood within the x constraints
+    blood.y = yc; //Draw the blood within the y constraints
+    blood.size = blood.size + blood.grow;
+    blood.size = constrain(blood.size, blood.minSize, blood.maxSize);
+
+    //Counting of i at zero and add one each time, moving along array
+    for (let i = 0; i < blood.trail.length; i++) {
+        //Pull out the position of the circle at the index of i
+        let position = blood.trail[i];
+        ellipse(position.x, position.y, blood.size);
+    }
+
+    ellipse(blood.x, blood.y, blood.size);
+
+    let newTrailPosition = {
+        x: blood.x,
+        y: blood.y
+    };
+
+    //Add the most recent position (newTrailPosition) into array
+    //Push adds the most recent position to the end of the array
+    blood.trail.push(newTrailPosition);
+    //Play the gunsound
+    gunsound.play();
+    // //If the blood gets to a certain point, go to blackScreen
+    if (blood.trail.length >= maxBloodTrailLength) {
+        blackScreen();
+    }
     pop();
 }
 
