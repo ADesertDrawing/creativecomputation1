@@ -120,7 +120,8 @@ function mousePressed() {
 function title() {
     background(0);
     let blackScreenTimer = 0;
-    // let blood.trail.length = 0;
+    //blood.trail.length = 0;
+
     push();
     textSize(32);
     fill(255);
@@ -189,15 +190,6 @@ function scene5() {
 
 //Makes a bloody, growing circle following the mouse position
 function shooting() {
-    // NEW! Increase the timer's count by one frame
-    // shootingTimer++;
-    // NEW! Check if we have reached the end of our timer
-    // if (shootingTimer >= shootingLength) {
-    // That's enough shooting - go to blackScreen
-    // blackScreen();
-    // }
-
-
     push();
     //Slow the shooting rate
     frameRate(7.5);
