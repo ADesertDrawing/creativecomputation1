@@ -186,7 +186,8 @@ function mousePressed() {
 
 function title() {
     background(0);
-
+    let blackScreenTimer = 0;
+    // let blood.trail.length = 0;
     push();
     textSize(32);
     fill(255);
