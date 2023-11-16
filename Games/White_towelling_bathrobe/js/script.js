@@ -16,15 +16,10 @@ let preShoot;
 let shootingBGclose;
 //NEW Set a max maxBloodTrailLength to move on to blackScreen when it reaches it
 let maxBloodTrailLength = 60;
-//I don't think this timer below is needed if I use the maxBloodTrailLength as a counter
-//NEW - a timer to count the number of frames in the shooting state
-// let shootingTimer = 0;
-// NEW! A variable to store how long the shooting is (in frames)
-// let shootingLength = 40; // 40 frames (slowed down)
-//NEW - a timer to count the number of frames in the blackScreen state
+//A timer to count the number of frames in the blackScreen state
 let blackScreenTimer = 0;
-// NEW! A variable to store how long the blackScreen shooting is (in frames)
-let blackScreenLength = 90; // No of frames (slowed down)
+//A variable to store how long the blackScreen shooting is (in frames)
+let blackScreenLength = 90; // No of frames is slowed down
 
 //This is the blood that appears at the mouse position
 let blood = {
@@ -112,9 +107,6 @@ function mousePressed() {
     else if (state === 'scene5') {
         state = 'shooting';
     }
-    // else if (state === 'blackScreen') {
-    //     state = 'title';
-    // }
 }
 
 function title() {
@@ -262,7 +254,6 @@ function blackScreen() {
         blackScreenTimer = 0;
         blood.trail = [];
         blood.size = blood.minSize;
-
         state = "title";
     }
 }
