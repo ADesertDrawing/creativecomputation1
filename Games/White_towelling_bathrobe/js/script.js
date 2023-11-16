@@ -131,7 +131,7 @@ function scene0() {
     textSize(24);
     fill(255);
     textAlign(CENTER, 100);
-    text(`Wait a minute!`, width / 2, 80);
+    // text(`Wait a minute!`, width / 2, 80);
     pop();
 }
 
@@ -147,7 +147,7 @@ function scene2() {
     textSize(24);
     fill(255);
     textAlign(CENTER, CENTER);
-    text(`I was afraid\nyou'd miss me`, width / 2 - 70, 50);
+    // text(`I was afraid\nyou'd miss me`, width / 2 - 70, 50);
     pop();
 }
 
@@ -158,7 +158,7 @@ function scene3() {
     textSize(24);
     fill(255);
     textAlign(CENTER, CENTER);
-    text(`Don't worry.`, width / 2 - 110, height / 2 + 30);
+    // text(`Don't worry.`, width / 2 - 110, height / 2 + 30);
     pop();
 }
 
@@ -174,7 +174,7 @@ function scene5() {
     textSize(24);
     fill(255);
     textAlign(CENTER, CENTER);
-    text(`We won't`, width / 2 - 130, height / 2 - 30);
+    // text(`We won't`, width / 2 - 130, height / 2 - 30);
     pop();
 }
 
