@@ -24,7 +24,7 @@ let maxBloodTrailLength = 60;
 //NEW - a timer to count the number of frames in the blackScreen state
 let blackScreenTimer = 0;
 // NEW! A variable to store how long the blackScreen shooting is (in frames)
-let blackScreenLength = 70; // No of frames (slowed down)
+let blackScreenLength = 90; // No of frames (slowed down)
 
 //This is the blood that appears at the mouse position
 let blood = {
@@ -32,7 +32,7 @@ let blood = {
     y: 300,
     size: 20,
     minSize: 15,
-    maxSize: 50,
+    maxSize: 40,
     grow: .5,
     trail: [], //adding an array to remember where the blood is
 };
@@ -190,7 +190,7 @@ function scene5() {
 function shooting() {
     push();
     //Slow the shooting rate
-    frameRate(7.5);
+    frameRate(8.5);
     // Constrain the shots to the body area: trees don't bleed
     // Appear between leftWall, rightWall, topWall & bottomWall
     let leftWall = 350;
@@ -252,7 +252,7 @@ function blackScreen() {
     blackScreenTimer++;
 
     //NEW Stop the noise after half way through the blackscreen stage
-    if (blackScreenTimer > blackScreenLength / 2) {
+    if (blackScreenTimer > blackScreenLength / 2 - 10) {
         gunsound.stop();
     }
 
