@@ -6,34 +6,12 @@ by A Desert Drawing
 
 "use strict";
 let timer = 0;
-let state = `start`; //can be start, instruction1-14, end
-
-let instruction1;
-let instruction2;
-let instruction3;
-let instruction4;
-let instruction5;
-let instruction6;
-let instruction7;
-let instruction8;
-let instruction9;
-let instruction10;
-let instruction11;
-let instruction12;
-let instruction13;
-let instruction14;
 
 
-// `You play the game as long as you're alive.`,
-//     `Like John Cage responding to all ambient noise "Well, they're just playing my piece".`,
-//     `You're playing my game now.`,
-//     `Forever.`,
-//     `Bit controlling?`,
-//     `Bit creepy?`,
 //     `'Tis a bit.`,
 //     'You can go now.',
 //     'Nothing interesting is going to happen here.',
-//     'The interesting things are going to happen…',
+//     '',
 //     "Y'know…",
 //     'Out there.',
 //     'Good luck.',
@@ -57,15 +35,66 @@ function draw() {
     timer += 1 / 60;
     pop();
 
-    if (timer = 10) {
-        instruction1();
-    }
-
-}
-
-function instruction1() {
     push();
-    textSize(50);
-    text(`This is a game where the timer is your score.`, width / 2, height / 2 + 200);
-    pop();
+    textSize(25);
+    textAlign(CENTER);
+    fill(255);
+    if (timer > 5 && timer <= 10) {
+        text(`This is a game where the timer is your score.`, width / 2, height - 100);
+    }
+    else if (timer > 15 && timer <= 20) {
+        text(`You play the game as long as you're alive.`, width / 2, height - 100);
+    }
+    else if (timer > 25 && timer <= 30) {
+        text(`Like John Cage responding to all ambient noise:\n "Well, they're just playing my piece".`, width / 2, height - 100);
+    }
+    else if (timer > 35 && timer <= 40) {
+        text(`You're playing my game now.`, width / 2, height - 100);
+    }
+    else if (timer > 45 && timer <= 50) {
+        text(`Forever.`, width / 2, height - 100);
+    }
+    else if (timer > 55 && timer <= 60) {
+        text(`That's it.`, width / 2, height - 100);
+    }
+    else if (timer > 65 && timer <= 70) {
+        text(`There's nothing else here for you.`, width / 2, height - 100);
+    }
+    else if (timer > 75 && timer <= 80) {
+        text(`I hope you enjoy the game.`, width / 2, height - 100);
+    }
+    else if (timer > 85 && timer <= 90) {
+        text(`Good luck.`, width / 2, height - 100);
+    }
 }
+//     else if (timer > 55 && timer <= 60) {
+//         text(`Bit controlling?`, width / 2, height - 100);
+//     }
+//     else if (timer > 65 && timer <= 70) {
+//         text(`Bit creepy?`, width / 2, height - 100);
+//     }
+//     else if (timer > 75 && timer <= 80) {
+//         text(`'Tis a bit.`, width / 2, height - 100);
+//     }
+//     else if (timer > 85 && timer <= 90) {
+//         text(`You can go now.`, width / 2, height - 100);
+//     }
+//     else if (timer > 95 && timer <= 100) {
+//         text(`Nothing interesting is going to happen here.`, width / 2, height - 100);
+//     }
+//     else if (timer > 105 && timer <= 110) {
+//         text(`The interesting things are going to happen…`, width / 2, height - 100);
+//     }
+//     else if (timer > 115 && timer <= 120) {
+//         text(`Y'know…`, width / 2, height - 100);
+//     }
+//     else if (timer > 125 && timer <= 130) {
+//         text(`Out there.`, width / 2, height - 100);
+//     }
+//     else if (timer > 135 && timer <= 140) {
+//         text(`Good luck.`, width / 2, height - 100);
+//     }
+//     pop();
+// }
+
+
