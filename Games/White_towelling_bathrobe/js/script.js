@@ -20,19 +20,19 @@ let maxBloodTrailLength = 60;
 //NEW - a timer to count the number of frames in the shooting state
 // let shootingTimer = 0;
 // NEW! A variable to store how long the shooting is (in frames)
-// let shootingLength = 40; // 50 frames (slowed down)
+// let shootingLength = 40; // 40 frames (slowed down)
 //NEW - a timer to count the number of frames in the blackScreen state
 let blackScreenTimer = 0;
 // NEW! A variable to store how long the blackScreen shooting is (in frames)
-let blackScreenLength = 50; // 25 frames (slowed down)
+let blackScreenLength = 70; // No of frames (slowed down)
 
 //This is the blood that appears at the mouse position
 let blood = {
     x: 450,
     y: 300,
     size: 20,
-    minSize: 20,
-    maxSize: 70,
+    minSize: 15,
+    maxSize: 50,
     grow: .5,
     trail: [], //adding an array to remember where the blood is
 };
@@ -119,8 +119,6 @@ function mousePressed() {
 
 function title() {
     background(0);
-    let blackScreenTimer = 0;
-    //blood.trail.length = 0;
 
     push();
     textSize(32);
@@ -249,12 +247,22 @@ function shooting() {
 function blackScreen() {
 
     background(0);
-    gunsound.stop();
-    // NEW! Increase the blackScreen timer's count by one frame
+
+    //Increase the blackScreen timer's count by one frame
     blackScreenTimer++;
-    // NEW! Check if we have reached the end of our blackScreen timer
+
+    //NEW Stop the noise after half way through the blackscreen stage
+    if (blackScreenTimer > blackScreenLength / 2) {
+        gunsound.stop();
+    }
+
+    //Check if we have reached the end of our blackScreen timer
     if (blackScreenTimer >= blackScreenLength) {
         // That's enough blackScreen - go to title
-        title();
+        blackScreenTimer = 0;
+        blood.trail = [];
+        blood.size = blood.minSize;
+
+        state = "title";
     }
 }
