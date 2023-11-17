@@ -9,7 +9,7 @@ let resetButtonDown;
 let resetButtonUp;
 let buttonSound;
 // let buttonIsUp;
-let buttonIsDown;
+// let buttonIsDown;
 
 
 
@@ -20,31 +20,23 @@ function preload() {
 }
 function setup() {
     createCanvas(windowWidth, windowHeight);
-
 }
 
 function draw() {
-    buttonIsUp();
+    image(resetButtonUp, 0, 0, 1200, 600);
     mousePressed();
 
 }
 
 function mousePressed() {
-    buttonIsDown();
-}
-
-function buttonIsUp() {
-    image(resetButtonUp, 0, 0, 1200, 600);
-
-}
-
-function buttonIsDown() {
     push();
     // clear();
+    resetButtonUp.hide();
     image(resetButtonDown, 0, 0, 1200, 600);
     buttonSound.play();
-    pop();
     delayTime(0.5);
-    buttonIsUp();
+    pop();
+    clear();
 }
+
 
