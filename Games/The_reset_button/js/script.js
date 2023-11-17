@@ -3,11 +3,31 @@ The reset button
 by A Desert Drawing
 */
 "use strict";
-function setup() {
-    createCanvas(500, 500);
 
+let resetButtonDown;
+let resetButtonUp;
+let button;
+let buttonUp;
+let buttonDown;
+
+function preload() {
+    resetButtonDown = loadImage(`assets/images/resetButtonDown.png`);
+    resetButtonUp = loadImage(`assets/images/resetButtonUp.png`);
+    button = loadSound(`assets/sounds/button.mp3`);
+}
+function setup() {
+    createCanvas(1200, 600);
 }
 
 function draw() {
-    background(0, 0, 0);
+    image(resetButtonUp, 0, 0);
+}
+
+function buttonDown() {
+    image(resetButtonDown, 0, 0);
+    button.play();
+}
+
+function mousePressed() {
+    buttonDown();
 }
