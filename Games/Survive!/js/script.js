@@ -49,16 +49,16 @@ function draw() {
         text(`You play the game as long as you're alive.`, width / 2, height - 100);
     }
     else if (timer > 30 && timer <= 34) {
-        text(`You're doing well`, width / 2, height - 100);
+        text(`(You're doing well)`, width / 2, height - 100);
     }
     else if (timer > 37 && timer <= 43) {
-        text(`Like that story about John Cage being asked why\nthe ambient noise of people didn't bother him.`, width / 2, height - 100);
+        text(`It's like that story about John Cage being asked why\nthe ambient noise of people didn't bother him.`, width / 2, height - 100);
     }
     else if (timer > 45 && timer <= 50) {
-        text(`"Well", he responds. "They're just playing my piece."`, width / 2, height - 100);
+        text(`"Well", he says. "They're just playing my piece."`, width / 2, height - 100);
     }
     else if (timer > 53 && timer <= 56) {
-        text(`You're playing the game now.`, width / 2, height - 100);
+        text(`So it looks like you're playing it now.`, width / 2, height - 100);
     }
     else if (timer > 59 && timer <= 62) {
         text(`Forever.`, width / 2, height - 100);
@@ -67,7 +67,7 @@ function draw() {
         text(`Enjoy the game.`, width / 2, height - 100);
     }
     else if (timer > 73 && timer <= 80) {
-        text(`Good luck.`, width / 2, height - 100);
+        text(`And good luck.`, width / 2, height - 100);
     }
 }
 
