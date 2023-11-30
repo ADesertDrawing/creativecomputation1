@@ -7,6 +7,7 @@ by A Desert Drawing
 let state = `buttonUp`; //can be buttonUp or buttonDown
 
 //A small delay after showing the buttonDown to reverting to buttonUp
+let x = frames;
 let smallDelay;
 let delayMax = 60;
 
@@ -57,7 +58,7 @@ function buttonDown() {
         buttonSound.play();
     }
 
-    while (smallDelay <= delayMax) {
+    while (smallDelay < delayMax) {
         smallDelay = smallDelay + 1;
     }
     //Set the state back to buttonUp to revert to original state
