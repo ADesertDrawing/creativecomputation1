@@ -7,9 +7,8 @@ by A Desert Drawing
 let state = `buttonUp`; //can be buttonUp or buttonDown
 
 //A small delay after showing the buttonDown to reverting to buttonUp
-let x = frames;
-let smallDelay;
-let delayMax = 60;
+
+let delay = 1000; // 1 second delay
 
 // Setting up the images/sound for buttonUp/buttonDown/buttonSound
 let resetButtonDown;
@@ -52,16 +51,14 @@ function buttonUp() {
 
 //Show buttonDown image (offset to test if it's appearing)
 function buttonDown() {
-    image(resetButtonDown, width / 2 + 50, height / 2 + 50, 300, 150);
-
+    background(0);
+    image(resetButtonDown, width / 2, height / 2, 300, 150);
     if (!buttonSound.isPlaying()) {
         buttonSound.play();
     }
+    if (millis() > delay) { // wait for 1 second
 
-    while (smallDelay < delayMax) {
-        smallDelay = smallDelay + 1;
+        //Set the state back to buttonUp to revert to original state
+        state = `buttonUp`;
     }
-    //Set the state back to buttonUp to revert to original state
-    state = `buttonUp`;
-
 }
