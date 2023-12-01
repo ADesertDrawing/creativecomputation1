@@ -5,24 +5,14 @@ by A Desert Drawing
 
 
 "use strict";
+//Starting the timer from the start at zero
 let timer = 0;
-
-
-//     `'Tis a bit.`,
-//     'You can go now.',
-//     'Nothing interesting is going to happen here.',
-//     '',
-//     "Y'know…",
-//     'Out there.',
-//     'Good luck.',
-
-
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
 
 }
-
+//Adding the title and the score timer
 function draw() {
     background(0);
     push();
@@ -35,6 +25,7 @@ function draw() {
     timer += 1 / 60;
     pop();
 
+    //Adding the texts according to the time
     push();
     textSize(40);
     textAlign(CENTER);
