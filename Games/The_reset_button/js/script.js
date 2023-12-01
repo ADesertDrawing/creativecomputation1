@@ -45,13 +45,13 @@ function mousePressed() {
 }
 //Show buttonUp image
 function buttonUp() {
-    background(0);
+    background(255);
     image(resetButtonUp, width / 2, height / 2, 300, 150);
 }
 
 //Show buttonDown image (offset to test if it's appearing)
 function buttonDown() {
-    background(0);
+    background(255);
     image(resetButtonDown, width / 2, height / 2, 300, 150);
     if (!buttonSound.isPlaying()) {
         buttonSound.play();
