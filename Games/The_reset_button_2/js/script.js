@@ -21,6 +21,8 @@ function preload() {
     resetButtonDown = loadImage(`assets/images/resetButtonDown.png`);
     resetButtonUp = loadImage(`assets/images/resetButtonUp.png`);
     buttonSound = loadSound(`assets/sounds/button.mp3`);
+    buttonDownSound = loadSound(`assets/sounds/buttonDownSound.mp3`);
+    buttonReleaseSound = loadSound(`assets/sounds/buttonReleaseSound.mp3`);
 }
 function setup() {
     createCanvas(windowWidth, windowHeight);
