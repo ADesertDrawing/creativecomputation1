@@ -52,7 +52,7 @@ function mousePressed() {
     text(`The Reset Button.`, width / 2, height / 2 - 250);
     textSize(24);
     fill(150);
-    text(`Use it whatever you need it for.`, width / 2, height / 2 + 300);
+    text(`Use it for whatever you need it for.`, width / 2, height / 2 + 300);
     pop();
     imageMode(CENTER);
     image(resetButtonDown, width / 2, height / 2, 300, 150);
