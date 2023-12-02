@@ -1,5 +1,5 @@
 /**
-The reset button 2
+The reset button
 by A Desert Drawing
 */
 "use strict";
@@ -20,13 +20,24 @@ function preload() {
     buttonDownSound = loadSound(`assets/sounds/buttonDownSound.mp3`);
     buttonReleasedSound = loadSound(`assets/sounds/buttonReleaseSound.mp3`);
 }
+
+//Showing the buttonUp image initially
 function setup() {
     createCanvas(windowWidth, windowHeight);
     background(0);
     imageMode(CENTER);
     image(resetButtonUp, width / 2, height / 2, 300, 150);
+    push();
+    textSize(32);
+    fill(255);
+    textAlign(CENTER, CENTER);
+    text(`The Reset Button.`, width / 2, height / 2 - 250);
+    textSize(24);
+    fill(150);
+    text(`Use it whatever you need it for.`, width / 2, height / 2 + 300);
+    pop();
 }
-//Setting up the states (only buttonUp and buttonDown)
+
 function draw() {
 
 }
@@ -34,6 +45,15 @@ function draw() {
 //Mouseclick shown buttonDown image and plays first click
 function mousePressed() {
     background(0);
+    push();
+    textSize(32);
+    fill(255);
+    textAlign(CENTER, CENTER);
+    text(`The Reset Button.`, width / 2, height / 2 - 250);
+    textSize(24);
+    fill(150);
+    text(`Use it whatever you need it for.`, width / 2, height / 2 + 300);
+    pop();
     imageMode(CENTER);
     image(resetButtonDown, width / 2, height / 2, 300, 150);
     if (!buttonDownSound.isPlaying()) {
