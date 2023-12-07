@@ -7,10 +7,25 @@ by A Desert Drawing
 "use strict";
 //Starting the timer from the start at zero
 let timer = 0;
+//There's going to be a button!
+let button;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
+    push();
 
+    button = createButton('Reset');
+    button.style('background-color', '#000000');
+    button.style('border', '#ffffff');
+    button.style('border', 'solid');
+
+    button.size(80, 30);
+    button.style('color', '#ffffff');
+    button.style('font-weight', 'bold');
+    button.style('font-size', '16px');
+    button.style('border-radius', '8px');
+    button.position(25, 25);
+    pop();
 }
 //Adding the title and the score timer
 function draw() {
