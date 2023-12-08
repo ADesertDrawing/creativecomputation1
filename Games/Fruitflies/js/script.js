@@ -4,7 +4,7 @@ by A Desert Drawing
 */
 "use strict";
 function setup() {
-    createCanvas(500, 500);
+    createCanvas(600, 600);
 
 }
 
