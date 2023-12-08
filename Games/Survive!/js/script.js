@@ -10,6 +10,8 @@ let timer = 0;
 //There's going to be a button!
 let button;
 
+let a = 255;
+
 function setup() {
     createCanvas(windowWidth, windowHeight);
     push();
@@ -36,8 +38,13 @@ function draw() {
     fill(255);
     text('SURVIVE!', width / 2, height / 2 - 100);
     textSize(100);
+    fill(255, 255, 255, a);
+    if (timer > 66 && timer <= 80) {
+        a = a - 0.4;
+    }
     text('Score: ' + round(timer), width / 2, height / 2 + 200);
     timer += 1 / 60;
+
     pop();
 
     //Adding the texts according to the time
