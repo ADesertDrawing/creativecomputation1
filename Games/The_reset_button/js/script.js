@@ -4,61 +4,68 @@ by A Desert Drawing
 */
 "use strict";
 
-let state = `buttonUp`; //can be buttonUp or buttonDown
 
-//A small delay after showing the buttonDown to reverting to buttonUp
-
-let delay = 1000; // 1 second delay
-
-// Setting up the images/sound for buttonUp/buttonDown/buttonSound
+// Setting up the images/sound for buttonUp/buttonDown
 let resetButtonDown;
 let resetButtonUp;
 
-let buttonSound;
+let buttonDownSound;
+let buttonReleasedSound;
 
 // Preloading the images and sounds
 function preload() {
     resetButtonDown = loadImage(`assets/images/resetButtonDown.png`);
     resetButtonUp = loadImage(`assets/images/resetButtonUp.png`);
-    buttonSound = loadSound(`assets/sounds/button.mp3`);
+
+    buttonDownSound = loadSound(`assets/sounds/buttonDownSound.mp3`);
+    buttonReleasedSound = loadSound(`assets/sounds/buttonReleaseSound.mp3`);
 }
+
+//Showing the buttonUp image initially
 function setup() {
     createCanvas(windowWidth, windowHeight);
     background(0);
-    // setTimeout(buttonDown, 3000);
-}
-//Setting up the states (only buttonUp and buttonDown)
-function draw() {
-    if (state === `buttonUp`) {
-        buttonUp();
-    }
-    else if (state === `buttonDown`) {
-        buttonDown();
-    }
-}
-
-//Mouseclick changes state to buttonDown
-function mousePressed() {
-    if (state === `buttonUp`) {
-        state = `buttonDown`;
-    }
-}
-//Show buttonUp image
-function buttonUp() {
-    background(255);
+    imageMode(CENTER);
     image(resetButtonUp, width / 2, height / 2, 300, 150);
+    push();
+    textSize(32);
+    fill(255);
+    textAlign(CENTER, CENTER);
+    text(`The Reset Button.`, width / 2, height / 2 - 250);
+    textSize(24);
+    fill(150);
+    text(`Use it for whatever you need it for.`, width / 2, height / 2 + 300);
+    pop();
 }
 
-//Show buttonDown image (offset to test if it's appearing)
-function buttonDown() {
-    background(255);
-    image(resetButtonDown, width / 2, height / 2, 300, 150);
-    if (!buttonSound.isPlaying()) {
-        buttonSound.play();
-    }
-    if (millis() > delay) { // wait for 1 second
+function draw() {
 
-        //Set the state back to buttonUp to revert to original state
-        state = `buttonUp`;
+}
+
+//Mouseclick shown buttonDown image and plays first click
+function mousePressed() {
+    background(0);
+    push();
+    textSize(32);
+    fill(255);
+    textAlign(CENTER, CENTER);
+    text(`The Reset Button.`, width / 2, height / 2 - 250);
+    textSize(24);
+    fill(150);
+    text(`Use it for whatever you need it for.`, width / 2, height / 2 + 300);
+    pop();
+    imageMode(CENTER);
+    image(resetButtonDown, width / 2, height / 2, 300, 150);
+    if (!buttonDownSound.isPlaying()) {
+        buttonDownSound.play();
+    }
+}
+
+//Mousebutton release shows buttonUp image and plays second click
+function mouseReleased() {
+    imageMode(CENTER);
+    image(resetButtonUp, width / 2, height / 2, 300, 150);
+    if (!buttonReleasedSound.isPlaying()) {
+        buttonReleasedSound.play();
     }
 }
