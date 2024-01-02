@@ -30,17 +30,8 @@ function draw() {
     rotation += rotationSpeed;
     rotationSpeed *= 0.98;
 
-    //Constrain the movement 
-    if (mouseIsPressed === true) {
-        rotation = constrain(rotation, -radians(20), radians(20));
-    }
-    else if (rotation <= 20 && rotation > 0) {
-        rotation = constrain(rotation, -radians(20), radians(0));
-    }
-    else if (rotation >= -20 && rotation < 0) {
-        rotation = constrain(rotation, -radians(0), radians(20));
-    }
-
+    // //Constrain the movement 
+    rotation = constrain(rotation, -radians(20), radians(20));
 
     //Draw top rotating layer
     push();
@@ -69,14 +60,14 @@ function mousePressed() {
     }
 }
 function mouseReleased() {
-    //If down on right
+    // If down on right
     if (rotation <= 20 && rotation > 0) {
         rotationSpeed = radians(-1);
-        constrain(rotation, 0, 0);
+        rotation = constrain(rotation, radians(0), radians(20));
     }
+    // If down on left
     else if (rotation >= -20 && rotation < 0) {
         rotationSpeed = radians(1);
-        constrain(rotation, -20, 0);
+        rotation = constrain(rotation, radians(-20), radians(0));
     }
-
 }
