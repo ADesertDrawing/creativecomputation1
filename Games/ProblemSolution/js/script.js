@@ -2,72 +2,62 @@
 Problem / Solution
 by A Desert Drawing
 */
-"use strict";
 
-let scalesBottom;
+"use strict";
+let angle = 0;
+let rotationSpeed = .1;
+let rotating = false;
 let scalesTop;
-let rotation = 0;
-let rotationSpeed = 0;
+let scalesBottom;
 
 function preload() {
-    //Preloading the base bg layer and the top scales layer
-    scalesBottom = loadImage('assets/images/prob_sol_bottom_1000x700.png');
     scalesTop = loadImage('assets/images/prob_sol_top_1000x700.png');
+    scalesBottom = loadImage('assets/images/prob_sol_bottom_1000x700.png');
 }
 
 function setup() {
     createCanvas(1000, 700);
+    imageMode(CENTER);
 }
 
 function draw() {
     background(255);
 
-    //Centre the scales
-    let centerX = width / 2;
-    let centerY = height / 2;
+    //Shift the point of reference to the middle
+    translate(width / 2, height / 2);
 
-    //Smooth movement
-    rotation += rotationSpeed;
-    rotationSpeed *= 0.98;
-
-    // //Constrain the movement 
-    rotation = constrain(rotation, -radians(20), radians(20));
-
-    //Draw top rotating layer
+    // Draw non-rotating bottom layer
     push();
-    translate(centerX, centerY);
-    rotate(rotation);
-    imageMode(CENTER);
-    image(scalesTop, 0, -15);
-    pop();
-
-    //Draw bottom static layer (the base)
-    push();
-    translate(centerX, centerY);
-    imageMode(CENTER);
     image(scalesBottom, 0, -15);
     pop();
-}
 
-function mousePressed() {
-    //If mouse pressed on right
-    if (mouseX > width / 2) {
-        rotationSpeed = radians(1);
+    // Draw rotating top layer
+    rotate(radians(angle));
+    image(scalesTop, 0, -15);
+
+    // If mouse is pressed on right
+    if (mouseIsPressed && mouseX > width / 2) {
+        rotating = true;
+        angle += rotationSpeed;
+        angle = constrain(angle, 0, 20);
     }
-    //If mouse pressed on left
-    else if (mouseX < width / 2) {
-        rotationSpeed = radians(-1);
+
+    // If mouse is pressed on left
+    if (mouseIsPressed && mouseX < width / 2) {
+        rotating = true;
+        angle -= rotationSpeed;
+        angle = constrain(angle, -20, 0);
     }
-}
-function mouseReleased() {
-    // If down on right
-    if (rotation <= 20 && rotation > 0) {
-        rotationSpeed = radians(-1);
-        rotation = constrain(rotation, radians(0), radians(20));
-    }
-    // If down on left
-    else if (rotation >= -20 && rotation < 0) {
-        rotationSpeed = radians(1);
-        rotation = constrain(rotation, radians(-20), radians(0));
+
+    // If mouse is released
+    if (!mouseIsPressed && rotating) {
+        // Gradually rotate back to 0 degrees
+        if (angle > 0) {
+            angle -= rotationSpeed * 4;
+            angle = max(angle, 0);
+        } else if (angle < 0) {
+            angle += rotationSpeed * 4;
+            angle = min(angle, 0);
+        }
     }
 }
