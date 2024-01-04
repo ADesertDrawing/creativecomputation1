@@ -5,7 +5,7 @@ by A Desert Drawing
 
 "use strict";
 let angle = 0;
-let rotationSpeed = .1;
+let rotationSpeed = .2;
 let rotating = false;
 let scalesTop;
 let scalesBottom;
