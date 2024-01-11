@@ -19,5 +19,10 @@ body {
   height: 100vh;
   /* Body is the height of the viewport */
   overflow: hidden;
+
   /* Hide anything that goes off the window size */
+  /*stops the context menu popping up on long press on mobile */
+  .el {
+    user-select: none;
+  }
 }
