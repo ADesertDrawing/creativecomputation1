@@ -93,22 +93,34 @@ class Person {
     }
 
     display() {
-        if (pressedKeys.a) {
+        if (pressedKeys.a & !pressedKeys.w & !pressedKeys.d & !pressedKeys.s) {
             image(leftLeft, this.x, this.y, 50, 100);
         }
-        if (pressedKeys.d) {
+        if (pressedKeys.d & !pressedKeys.w & !pressedKeys.a & !pressedKeys.s) {
             image(rightRight, this.x, this.y, 50, 100);
         }
-        if (pressedKeys.w) {
+        if (pressedKeys.w & !pressedKeys.a & !pressedKeys.d & !pressedKeys.s) {
             image(middleBack, this.x, this.y, 50, 100);
 
         }
-        if (pressedKeys.s) {
+        if (pressedKeys.s & !pressedKeys.w & !pressedKeys.d & !pressedKeys.a) {
             image(middleFront, this.x, this.y, 50, 100);
         }
 
         if (pressedKeys.s & pressedKeys.a) {
             image(leftFront, this.x, this.y, 50, 100);
+
+        }
+        if (pressedKeys.s & pressedKeys.d) {
+            image(rightFront, this.x, this.y, 50, 100);
+
+        }
+        if (pressedKeys.w & pressedKeys.a) {
+            image(leftBack, this.x, this.y, 50, 100);
+
+        }
+        if (pressedKeys.w & pressedKeys.d) {
+            image(rightBack, this.x, this.y, 50, 100);
 
         }
     }
