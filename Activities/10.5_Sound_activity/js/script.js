@@ -4,10 +4,16 @@ by A Desert Drawing
 */
 "use strict";
 
+//The balls
 let balls = [];
+
+//F-minor
+let notes = [`F3`, `G3`, `Ab4`, `Bb4`, `C4`, `Db4`, `Eb4`, `F4`];
 
 function setup() {
     createCanvas(600, 600);
+
+    userStartAudio();
 
 }
 
@@ -32,7 +38,8 @@ function mousePressed() {
 
 //Every time createBall gets called, a new ball is added to array
 function createBall(x, y) {
-    let ball = new Ball(x, y);
+    let note = random(notes);
+    let ball = new Ball(x, y, note);
     balls.push(ball);
 }
 
