@@ -16,7 +16,8 @@ let leftFront;
 
 let person;
 let personS, personSE, personE, personNE, personN, personNW, personW, personSW;
-let personPic = personS; //Start facing the front (South - can be N,S,E,W,NE,SE etc)
+
+let state = `personS`; //Start facing the front (South - can be N,S,E,W,NE,SE etc)
 
 
 //This stores the last key press so we can delete it and go to 
@@ -39,20 +40,22 @@ function preload() {
 function setup() {
     createCanvas(600, 600);
     person = new Person(width / 2, height / 2);
-    let personPic = personS
 }
 
 
 
 function draw() {
     background(200);
+
     person.update();
     person.display();
 
 }
-//Our pressedKeys will only hold whatever keys we're holding
+// Our pressedKeys will only hold whatever keys we're holding
 function keyPressed() {
     pressedKeys[key] = true;
+
+
 }
 // and then remove them
 function keyReleased() {
@@ -89,28 +92,28 @@ class Person {
         this.y += mvmt.y;
 
         if (pressedKeys.a & !pressedKeys.w & !pressedKeys.d & !pressedKeys.s) {
-            personPic = personE;
+            state = `personW`;
         }
         if (pressedKeys.d & !pressedKeys.w & !pressedKeys.a & !pressedKeys.s) {
-            personPic = personW;
+            state = `personE`;
         }
         if (pressedKeys.w & !pressedKeys.a & !pressedKeys.d & !pressedKeys.s) {
-            personPic = personN;
+            state = `personN`;
         }
         if (pressedKeys.s & !pressedKeys.w & !pressedKeys.d & !pressedKeys.a) {
-            personPic = personS;
+            state = `personS`;
         }
         if (pressedKeys.s & pressedKeys.a) {
-            personPic = personSW;
+            state = `personSW`;
         }
         if (pressedKeys.s & pressedKeys.d) {
-            personPic = personSE;
+            state = `personSE`;
         }
         if (pressedKeys.w & pressedKeys.a) {
-            personPic = personNW;
+            state = `personNW`;
         }
         if (pressedKeys.w & pressedKeys.d) {
-            personPic = personNE;
+            state = `personNE`;
         }
     }
 
@@ -120,33 +123,33 @@ class Person {
     }
 
     display() {
-        if (personPic = personE) {
+        if (state === `personW`) {
             image(leftLeft, this.x, this.y, 50, 100);
         }
-        else if (personPic = personW) {
+        else if (state === `personE`) {
             image(rightRight, this.x, this.y, 50, 100);
         }
-        else if (personPic = personN) {
+        else if (state === `personN`) {
             image(middleBack, this.x, this.y, 50, 100);
 
         }
-        else if (personPic = personS) {
+        else if (state === `personS`) {
             image(middleFront, this.x, this.y, 50, 100);
         }
 
-        else if (personPic = personSW) {
+        else if (state === `personSW`) {
             image(leftFront, this.x, this.y, 50, 100);
 
         }
-        else if (personPic = personSE) {
+        else if (state === `personSE`) {
             image(rightFront, this.x, this.y, 50, 100);
 
         }
-        else if (personPic = personNW) {
+        else if (state === `personNW`) {
             image(leftBack, this.x, this.y, 50, 100);
 
         }
-        else if (personPic = personNE) {
+        else if (state === `personNE`) {
             image(rightBack, this.x, this.y, 50, 100);
 
         }
