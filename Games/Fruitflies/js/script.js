@@ -15,7 +15,11 @@ let middleFront;
 let leftFront;
 
 let person;
-//This stores the laaast key press so we can delete it and go to 
+let personS, personSE, personE, personNE, personN, personNW, personW, personSW;
+let personPic = personS; //Start facing the front (South - can be N,S,E,W,NE,SE etc)
+
+
+//This stores the last key press so we can delete it and go to 
 //the next one, so we can have two pressed at once (diagonals)
 let pressedKeys = {};
 
@@ -35,6 +39,7 @@ function preload() {
 function setup() {
     createCanvas(600, 600);
     person = new Person(width / 2, height / 2);
+    let personPic = personS
 }
 
 
@@ -49,10 +54,9 @@ function draw() {
 function keyPressed() {
     pressedKeys[key] = true;
 }
-//and then remove them
+// and then remove them
 function keyReleased() {
     delete pressedKeys[key];
-
 }
 
 class Person {
@@ -61,8 +65,6 @@ class Person {
         this.y = y;
         this.size = 50;
         this.speed = 3;
-
-
     }
 
     update() {
@@ -85,6 +87,31 @@ class Person {
 
         this.x += mvmt.x;
         this.y += mvmt.y;
+
+        if (pressedKeys.a & !pressedKeys.w & !pressedKeys.d & !pressedKeys.s) {
+            personPic = personE;
+        }
+        if (pressedKeys.d & !pressedKeys.w & !pressedKeys.a & !pressedKeys.s) {
+            personPic = personW;
+        }
+        if (pressedKeys.w & !pressedKeys.a & !pressedKeys.d & !pressedKeys.s) {
+            personPic = personN;
+        }
+        if (pressedKeys.s & !pressedKeys.w & !pressedKeys.d & !pressedKeys.a) {
+            personPic = personS;
+        }
+        if (pressedKeys.s & pressedKeys.a) {
+            personPic = personSW;
+        }
+        if (pressedKeys.s & pressedKeys.d) {
+            personPic = personSE;
+        }
+        if (pressedKeys.w & pressedKeys.a) {
+            personPic = personNW;
+        }
+        if (pressedKeys.w & pressedKeys.d) {
+            personPic = personNE;
+        }
     }
 
     move() {
@@ -93,33 +120,33 @@ class Person {
     }
 
     display() {
-        if (pressedKeys.a & !pressedKeys.w & !pressedKeys.d & !pressedKeys.s) {
+        if (personPic = personE) {
             image(leftLeft, this.x, this.y, 50, 100);
         }
-        if (pressedKeys.d & !pressedKeys.w & !pressedKeys.a & !pressedKeys.s) {
+        else if (personPic = personW) {
             image(rightRight, this.x, this.y, 50, 100);
         }
-        if (pressedKeys.w & !pressedKeys.a & !pressedKeys.d & !pressedKeys.s) {
+        else if (personPic = personN) {
             image(middleBack, this.x, this.y, 50, 100);
 
         }
-        if (pressedKeys.s & !pressedKeys.w & !pressedKeys.d & !pressedKeys.a) {
+        else if (personPic = personS) {
             image(middleFront, this.x, this.y, 50, 100);
         }
 
-        if (pressedKeys.s & pressedKeys.a) {
+        else if (personPic = personSW) {
             image(leftFront, this.x, this.y, 50, 100);
 
         }
-        if (pressedKeys.s & pressedKeys.d) {
+        else if (personPic = personSE) {
             image(rightFront, this.x, this.y, 50, 100);
 
         }
-        if (pressedKeys.w & pressedKeys.a) {
+        else if (personPic = personNW) {
             image(leftBack, this.x, this.y, 50, 100);
 
         }
-        if (pressedKeys.w & pressedKeys.d) {
+        else if (personPic = personNE) {
             image(rightBack, this.x, this.y, 50, 100);
 
         }
