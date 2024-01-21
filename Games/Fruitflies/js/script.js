@@ -38,7 +38,7 @@ function preload() {
 
 }
 function setup() {
-    createCanvas(600, 600);
+    createCanvas(800, 800);
     person = new Person(width / 2, height / 2);
 }
 
@@ -66,7 +66,8 @@ class Person {
     constructor(x, y,) {
         this.x = x;
         this.y = y;
-        this.size = 50;
+        this.height = 80;
+        this.width = 40;
         this.speed = 3;
     }
 
@@ -115,44 +116,51 @@ class Person {
         if (pressedKeys.w & pressedKeys.d) {
             state = `personNE`;
         }
+
+        this.x = constrain(this.x, 0 + this.width / 2, width - this.width / 2);
+        this.y = constrain(this.y, 0 + this.height / 2, height - this.height / 2);
     }
 
     move() {
         this.x += this.vx;
         this.y += this.vy;
+
     }
 
     display() {
+        imageMode(CENTER);
+
         if (state === `personW`) {
-            image(leftLeft, this.x, this.y, 50, 100);
+            image(leftLeft, this.x, this.y, this.width, this.height);
         }
         else if (state === `personE`) {
-            image(rightRight, this.x, this.y, 50, 100);
+            image(rightRight, this.x, this.y, this.width, this.height);
         }
         else if (state === `personN`) {
-            image(middleBack, this.x, this.y, 50, 100);
+            image(middleBack, this.x, this.y, this.width, this.height);
 
         }
         else if (state === `personS`) {
-            image(middleFront, this.x, this.y, 50, 100);
+            image(middleFront, this.x, this.y, this.width, this.height);
         }
 
         else if (state === `personSW`) {
-            image(leftFront, this.x, this.y, 50, 100);
+            image(leftFront, this.x, this.y, this.width, this.height);
 
         }
         else if (state === `personSE`) {
-            image(rightFront, this.x, this.y, 50, 100);
+            image(rightFront, this.x, this.y, this.width, this.height);
 
         }
         else if (state === `personNW`) {
-            image(leftBack, this.x, this.y, 50, 100);
+            image(leftBack, this.x, this.y, this.width, this.height);
 
         }
         else if (state === `personNE`) {
-            image(rightBack, this.x, this.y, 50, 100);
+            image(rightBack, this.x, this.y, this.width, this.height);
 
         }
+
     }
 
 }
