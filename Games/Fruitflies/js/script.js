@@ -66,8 +66,8 @@ class Person {
     constructor(x, y,) {
         this.x = x;
         this.y = y;
-        this.height = 80;
-        this.width = 40;
+        this.height = 120;
+        this.width = 60;
         this.speed = 3;
     }
 
