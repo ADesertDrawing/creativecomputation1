@@ -26,14 +26,14 @@ let pressedKeys = {};
 
 function preload() {
     //Preloading the player movement images
-    leftLeft = loadImage('assets/images/leftLeft.png');
-    leftBack = loadImage('assets/images//leftBack.png');
-    middleBack = loadImage('assets/images//middleBack.png');
-    rightBack = loadImage('assets/images//rightBack.png');
-    rightRight = loadImage('assets/images//rightRight.png');
-    rightFront = loadImage('assets/images//rightFront.png');
-    middleFront = loadImage('assets/images//middleFront.png');
-    leftFront = loadImage('assets/images//leftFront.png');
+    leftLeft = loadImage('assets/images/personW.png');
+    leftBack = loadImage('assets/images/personNW.png');
+    middleBack = loadImage('assets/images/personN.png');
+    rightBack = loadImage('assets/images/personNE.png');
+    rightRight = loadImage('assets/images/personE.png');
+    rightFront = loadImage('assets/images/personSE.png');
+    middleFront = loadImage('assets/images/personS.png');
+    leftFront = loadImage('assets/images/personSW.png');
 
 
 }
