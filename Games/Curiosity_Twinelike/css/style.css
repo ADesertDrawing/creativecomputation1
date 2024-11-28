@@ -1,23 +1,20 @@
 /*********************************************
-
-Here is a description of any special CSS used.
-In this case it's just padding and margin to 0
+Just padding and margin to 0
 and then centring the canvas (and anything else)
 using the CSS Grid.
-
 Also hides overflow.
-
 **********************************************/
 
 
 @font-face {
-    font-family: 'VT323';
-    font-weight: 24;
-    src: url('../assets/fonts/vt323-v17-latin-regular.woff2') format('woff2'); 
-  }
-  html {
-    cursor: url('/assets/images/greencursor.png'), default;
-  }
+  font-family: 'VT323';
+  font-weight: 24;
+  src: url('../assets/fonts/vt323-v17-latin-regular.woff2') format('woff2');
+}
+
+html {
+  cursor: url('/assets/images/greencursor.png'), default;
+}
 
 body {
   font-family: 'VT323';
@@ -25,21 +22,24 @@ body {
   color: #00cc00;
   background-color: black;
   font-style: normal;
-  text-shadow:-20px 1px 20px #00cc00, 20px -1px 20px #00cc00, -20px -10px 30px #00cc00, 20px 20px 30px #00cc00;
+  text-shadow: -20px 1px 20px #00cc00, 20px -1px 20px #00cc00, -20px -10px 30px #00cc00, 20px 20px 30px #00cc00;
   padding: 100;
   margin: 100;
-  display: grid; /* Set up the grid and justify/align to left */
+  display: grid;
+  /* Set up the grid and justify/align to left */
   justify-content: center;
   align-content: center;
-  height: 100vh; /* Body is the height of the viewport */
-  overflow: hidden; /* Hide anything that goes off the window size */
+  height: 100vh;
+  /* Body is the height of the viewport */
+  overflow: hidden;
+  /* Hide anything that goes off the window size */
 }
 
 
 li {
   list-style-type: none;
-  justify-content:top;
-  align-content:top;
+  justify-content: top;
+  align-content: top;
 }
 
 #main_text {
@@ -64,8 +64,8 @@ li {
   color: #00cc00;
   background-color: black;
   font-style: normal;
-  text-shadow:-3px 1px 10px #00cc00, 3px -1px 10px #00cc00, -3px -1px 10px #00cc00, 3px 1px 10px #00cc00;
-  
+  text-shadow: -3px 1px 10px #00cc00, 3px -1px 10px #00cc00, -3px -1px 10px #00cc00, 3px 1px 10px #00cc00;
+
 }
 
 .submit {
@@ -82,7 +82,7 @@ li {
   color: #00cc00;
   background-color: black;
   font-style: normal;
-  text-shadow:-20px 1px 20px #00cc00, 20px -1px 20px #00cc00, -20px -10px 30px #00cc00, 20px 20px 30px #00cc00;  
+  text-shadow: -20px 1px 20px #00cc00, 20px -1px 20px #00cc00, -20px -10px 30px #00cc00, 20px 20px 30px #00cc00;
 
 }
 
@@ -101,6 +101,5 @@ li {
   color: #00cc00;
   background-color: black;
   font-style: normal;
-  box-shadow:-3px 1px 10px #00cc00, 3px -1px 10px #00cc00, -3px -1px 10px #00cc00, 3px 1px 10px #00cc00;
+  box-shadow: -3px 1px 10px #00cc00, 3px -1px 10px #00cc00, -3px -1px 10px #00cc00, 3px 1px 10px #00cc00;
 }
-
